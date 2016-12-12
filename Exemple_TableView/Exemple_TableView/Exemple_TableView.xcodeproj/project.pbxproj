@@ -297,6 +297,7 @@
 				054565A01DFDFBC60094B714 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
