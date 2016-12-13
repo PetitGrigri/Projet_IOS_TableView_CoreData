@@ -59,6 +59,8 @@ class FruitsTableTableViewController: UITableViewController {
         cell.detailTextLabel?.text = "Delicious!"
         cell.textLabel?.text = fruitName
 
+        
+        
         //on set ici l'image (si cette image existe (ici les images se trouve dans le dossier Assets.xcassets)
         if let imageFruit = UIImage(named: fruitName) {
             cell.imageView?.image = imageFruit                                  //on set l'image
