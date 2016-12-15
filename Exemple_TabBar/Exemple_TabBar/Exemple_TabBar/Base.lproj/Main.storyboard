@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="U01-ui-P9P">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="U01-ui-P9P">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,28 +10,28 @@
     </dependencies>
     <scenes>
         <!--Item-->
-        <scene sceneID="TBN-7n-5ln">
+        <scene sceneID="zTs-O4-FTD">
             <objects>
-                <viewController id="Mjq-ro-lGZ" sceneMemberID="viewController">
+                <viewController id="aem-WY-5Jj" customClass="ShareController" customModule="Exemple_TabBar" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="VBr-2L-HBz"/>
-                        <viewControllerLayoutGuide type="bottom" id="KiU-HG-Xy5"/>
+                        <viewControllerLayoutGuide type="top" id="9TJ-j8-eYV"/>
+                        <viewControllerLayoutGuide type="bottom" id="FA4-ae-GXA"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="eRi-xV-5cO">
+                    <view key="view" contentMode="scaleToFill" id="C3C-Vh-B7E">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="eH4-ST-J0j"/>
+                    <tabBarItem key="tabBarItem" title="Item" id="SRR-hk-7fx"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Khc-No-MGz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fh9-9U-LZP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="120" y="815"/>
+            <point key="canvasLocation" x="-68" y="827"/>
         </scene>
         <!--Item 2-->
         <scene sceneID="KMi-af-cmV">
             <objects>
-                <viewController id="IRg-C8-mmk" sceneMemberID="viewController">
+                <viewController id="IRg-C8-mmk" customClass="ArticlesController" customModule="Exemple_TabBar" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Z3r-k3-Li1"/>
                         <viewControllerLayoutGuide type="bottom" id="ODw-tY-CTi"/>
@@ -40,8 +40,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Vue 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="URL-ko-fYI">
-                                <rect key="frame" x="166" y="323" width="44" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Je regrde des articles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="URL-ko-fYI">
+                                <rect key="frame" x="100" y="323" width="166" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -59,7 +59,7 @@
         <!--Item 1-->
         <scene sceneID="JXe-qX-uKM">
             <objects>
-                <viewController id="y8q-aq-bjJ" sceneMemberID="viewController">
+                <viewController id="y8q-aq-bjJ" customClass="TelechargerController" customModule="Exemple_TabBar" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="v2J-6z-1gy"/>
                         <viewControllerLayoutGuide type="bottom" id="IN4-Vu-us9"/>
@@ -68,8 +68,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Vue 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pUy-M7-fOu">
-                                <rect key="frame" x="166" y="323" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Je télécharge des articles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pUy-M7-fOu">
+                                <rect key="frame" x="89" y="323" width="197" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -96,7 +96,7 @@
                     <connections>
                         <segue destination="y8q-aq-bjJ" kind="relationship" relationship="viewControllers" id="RAR-Il-evb"/>
                         <segue destination="IRg-C8-mmk" kind="relationship" relationship="viewControllers" id="3O2-7g-jc2"/>
-                        <segue destination="Mjq-ro-lGZ" kind="relationship" relationship="viewControllers" id="Dfg-Gc-BHI"/>
+                        <segue destination="aem-WY-5Jj" kind="relationship" relationship="viewControllers" id="mi2-EB-hZ9"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="osd-Hf-QHB" userLabel="First Responder" sceneMemberID="firstResponder"/>

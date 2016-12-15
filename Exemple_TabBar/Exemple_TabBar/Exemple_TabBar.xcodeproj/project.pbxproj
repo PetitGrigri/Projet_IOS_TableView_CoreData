@@ -7,17 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0558B49A1E00B4C90077BB72 /* TelechargerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0558B4991E00B4C90077BB72 /* TelechargerController.swift */; };
+		058FB5D11E0343ED001FBFD0 /* ShareController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058FB5D01E0343ED001FBFD0 /* ShareController.swift */; };
 		0592BA841E00A8C700ACD689 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0592BA831E00A8C700ACD689 /* AppDelegate.swift */; };
-		0592BA861E00A8C700ACD689 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0592BA851E00A8C700ACD689 /* ViewController.swift */; };
+		0592BA861E00A8C700ACD689 /* ArticlesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0592BA851E00A8C700ACD689 /* ArticlesController.swift */; };
 		0592BA891E00A8C700ACD689 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0592BA871E00A8C700ACD689 /* Main.storyboard */; };
 		0592BA8B1E00A8C700ACD689 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0592BA8A1E00A8C700ACD689 /* Assets.xcassets */; };
 		0592BA8E1E00A8C700ACD689 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0592BA8C1E00A8C700ACD689 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0558B4991E00B4C90077BB72 /* TelechargerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TelechargerController.swift; sourceTree = "<group>"; };
+		058FB5D01E0343ED001FBFD0 /* ShareController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareController.swift; sourceTree = "<group>"; };
 		0592BA801E00A8C700ACD689 /* Exemple_TabBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Exemple_TabBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0592BA831E00A8C700ACD689 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0592BA851E00A8C700ACD689 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0592BA851E00A8C700ACD689 /* ArticlesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesController.swift; sourceTree = "<group>"; };
 		0592BA881E00A8C700ACD689 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0592BA8A1E00A8C700ACD689 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0592BA8D1E00A8C700ACD689 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,11 +59,13 @@
 			isa = PBXGroup;
 			children = (
 				0592BA831E00A8C700ACD689 /* AppDelegate.swift */,
-				0592BA851E00A8C700ACD689 /* ViewController.swift */,
+				0592BA851E00A8C700ACD689 /* ArticlesController.swift */,
 				0592BA871E00A8C700ACD689 /* Main.storyboard */,
 				0592BA8A1E00A8C700ACD689 /* Assets.xcassets */,
 				0592BA8C1E00A8C700ACD689 /* LaunchScreen.storyboard */,
 				0592BA8F1E00A8C700ACD689 /* Info.plist */,
+				0558B4991E00B4C90077BB72 /* TelechargerController.swift */,
+				058FB5D01E0343ED001FBFD0 /* ShareController.swift */,
 			);
 			path = Exemple_TabBar;
 			sourceTree = "<group>";
@@ -136,8 +142,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0592BA861E00A8C700ACD689 /* ViewController.swift in Sources */,
+				0592BA861E00A8C700ACD689 /* ArticlesController.swift in Sources */,
 				0592BA841E00A8C700ACD689 /* AppDelegate.swift in Sources */,
+				0558B49A1E00B4C90077BB72 /* TelechargerController.swift in Sources */,
+				058FB5D11E0343ED001FBFD0 /* ShareController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +305,7 @@
 				0592BA941E00A8C700ACD689 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
