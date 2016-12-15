@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Social
 
 class ViewController: UIViewController {
 
@@ -20,6 +21,20 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func shareButton(_ sender: Any) {
+        
+        let shareActionSheet = UIAlertController(title: nil, message: "Share with", preferredStyle: .actionSheet)
+        
+        let twitterShareAction = UIAlertAction(title: "Twitter", style: .default, handler: {(action) -> Void in
+            
+            if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeTwitter){
+                let tweetComposer = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+                tweetComposer?.setInitialText("Test !");
+            }
+            
+        })
+        
+    }
 
 }
 
