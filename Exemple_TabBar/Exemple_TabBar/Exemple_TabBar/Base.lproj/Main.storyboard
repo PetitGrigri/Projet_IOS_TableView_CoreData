@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="U01-ui-P9P">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="U01-ui-P9P">
+    <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -18,15 +18,27 @@
                         <viewControllerLayoutGuide type="bottom" id="FA4-ae-GXA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="C3C-Vh-B7E">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Je partage un article" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KJw-6s-FkL">
+                                <rect key="frame" x="81" y="230" width="158" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="KJw-6s-FkL" firstAttribute="centerX" secondItem="C3C-Vh-B7E" secondAttribute="centerX" id="K8T-cY-qcD"/>
+                            <constraint firstItem="KJw-6s-FkL" firstAttribute="centerY" secondItem="C3C-Vh-B7E" secondAttribute="centerY" id="kca-oC-2pb"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="SRR-hk-7fx"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fh9-9U-LZP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-68" y="827"/>
+            <point key="canvasLocation" x="-69" y="989"/>
         </scene>
         <!--Item 2-->
         <scene sceneID="KMi-af-cmV">
@@ -37,24 +49,27 @@
                         <viewControllerLayoutGuide type="bottom" id="ODw-tY-CTi"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="lDJ-2X-bn9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Je regrde des articles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="URL-ko-fYI">
-                                <rect key="frame" x="100" y="323" width="166" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="je visualise une liste d'article" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="URL-ko-fYI">
+                                <rect key="frame" x="52" y="230" width="217" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="URL-ko-fYI" firstAttribute="centerY" secondItem="lDJ-2X-bn9" secondAttribute="centerY" id="NXR-gi-6tW"/>
+                            <constraint firstItem="URL-ko-fYI" firstAttribute="centerX" secondItem="lDJ-2X-bn9" secondAttribute="centerX" id="mv9-aP-Bp4"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="HYS-ax-CEY"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z8Q-j7-OxO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="886" y="454"/>
+            <point key="canvasLocation" x="885" y="535"/>
         </scene>
         <!--Item 1-->
         <scene sceneID="JXe-qX-uKM">
@@ -65,18 +80,21 @@
                         <viewControllerLayoutGuide type="bottom" id="IN4-Vu-us9"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8I1-h2-vms">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Je télécharge des articles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pUy-M7-fOu">
-                                <rect key="frame" x="89" y="323" width="197" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Je télécharge des articles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pUy-M7-fOu">
+                                <rect key="frame" x="62" y="230" width="197" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pUy-M7-fOu" firstAttribute="centerX" secondItem="8I1-h2-vms" secondAttribute="centerX" id="kPw-b2-BTM"/>
+                            <constraint firstItem="pUy-M7-fOu" firstAttribute="centerY" secondItem="8I1-h2-vms" secondAttribute="centerY" id="zoS-jS-1Ue"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="e4n-3n-yzu"/>
                 </viewController>

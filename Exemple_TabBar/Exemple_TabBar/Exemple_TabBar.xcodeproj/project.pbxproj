@@ -59,12 +59,12 @@
 			isa = PBXGroup;
 			children = (
 				0592BA831E00A8C700ACD689 /* AppDelegate.swift */,
-				0592BA851E00A8C700ACD689 /* ArticlesController.swift */,
 				0592BA871E00A8C700ACD689 /* Main.storyboard */,
 				0592BA8A1E00A8C700ACD689 /* Assets.xcassets */,
 				0592BA8C1E00A8C700ACD689 /* LaunchScreen.storyboard */,
 				0592BA8F1E00A8C700ACD689 /* Info.plist */,
 				0558B4991E00B4C90077BB72 /* TelechargerController.swift */,
+				0592BA851E00A8C700ACD689 /* ArticlesController.swift */,
 				058FB5D01E0343ED001FBFD0 /* ShareController.swift */,
 			);
 			path = Exemple_TabBar;

@@ -9,18 +9,21 @@
 import UIKit
 
 class TelechargerController: UIViewController {
-//TODO COMPRENDRE A QUOI SERT CE NSCODER
+    //TODO COMPRENDRE A QUOI SERT CE NSCODER
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        // Initialize Tab Bar Item
+        // Initialisation du tabBarItem de ce controller (à faire pour chaque controller accessible via une tabBar pour le tunner ^^)
         self.tabBarItem = UITabBarItem(title: "Télécharger", image: UIImage(named: "download-7"), tag: 1)
+    
     }
     
+    //cette méthode n'est lancée qu'une fois dans le cycle de vie du UIViewController (lors de son chargement en mémoire)
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("DidLoad TelechargerController")
-        // Do any additional setup after loading the view.
+        //petit print de debug
+        print("DidLoad TelechargerController DidLoad")
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,6 +31,14 @@ class TelechargerController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //cette méthode est lancé à chaque fois que la UIViewController est affiché
+    override func viewDidAppear(_ animated: Bool) {
+        ///petit print de debug
+        print("DidLoad TelechargerController viewDidAppear")
+        
+        //désactivation du partage quand on regarde un article
+        self.tabBarController!.tabBar.items![2].isEnabled = false
+    }
 
     
     
