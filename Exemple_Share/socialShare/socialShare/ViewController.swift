@@ -6,6 +6,8 @@
 //  Copyright © 2016 Asif. All rights reserved.
 //
 
+// Tutorial Social share : https://www.youtube.com/watch?v=wOD1eirtl4k
+
 import UIKit
 import Social
 
