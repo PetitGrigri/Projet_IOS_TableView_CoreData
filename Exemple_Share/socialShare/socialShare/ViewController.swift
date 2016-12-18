@@ -13,6 +13,11 @@ import Social
 
 class ViewController: UIViewController {
     
+    // exemple data
+    let exempleArticle = "Fin attendue du pic de pollution en région parisienne dimanche."
+    let exempleImage = UIImage(named: "pic_pol.jpg")
+    let exempleUrl = NSURL(string: "http://www.lemonde.fr/planete/article/2016/12/17/fin-attendue-du-pic-de-pollution-en-region-parisienne-dimanche_5050675_3244.html")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -25,11 +30,7 @@ class ViewController: UIViewController {
     
     @IBAction func shareButton(_ sender: Any) {
         
-        // exemple data
-        let exempleArticle = "Fin attendue du pic de pollution en région parisienne dimanche. En savoir plus sur www.lemonde.fr"
-        let exempleImage = UIImage(named: "pic_pol.jpg")
-        
-        let shareActionSheet = UIAlertController(title: nil, message: "Share with", preferredStyle: .actionSheet)
+       let shareActionSheet = UIAlertController(title: nil, message: "Share with", preferredStyle: .actionSheet)
         
         // twitter share
         let twitterShareAction = UIAlertAction(title: "Twitter", style: .default, handler: {(action) -> Void in
@@ -43,8 +44,8 @@ class ViewController: UIViewController {
                 let tweetComposer = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
                 
                 // attention : 140 characters max
-                tweetComposer?.setInitialText(exempleArticle)
-                tweetComposer?.add(exempleImage)
+                tweetComposer?.setInitialText(self.exempleArticle)
+                tweetComposer?.add(self.exempleImage)
 
                 self.present(tweetComposer!, animated: true, completion: nil)
                 
@@ -72,8 +73,8 @@ class ViewController: UIViewController {
                 
                 // share data (text, image ...)
                 
-                facebookComposer?.setInitialText(exempleArticle)
-                facebookComposer?.add(exempleImage)
+                facebookComposer?.setInitialText(self.exempleArticle)
+                facebookComposer?.add(self.exempleImage)
                 
                 self.present(facebookComposer!, animated: true, completion: nil)
                 
@@ -93,6 +94,16 @@ class ViewController: UIViewController {
         self.present(shareActionSheet, animated: true, completion: nil)
         
     }
+    
+    @IBAction func shareSheetButton(_ sender: Any) {
+    
+        
+        let activityViewController = UIActivityViewController(activityItems: [exempleArticle,exempleImage!,exempleUrl!],applicationActivities: nil)
+        self.present(activityViewController, animated: true, completion: {})
+
+    }
+    
+    
     
     // Fonction permet d'afficher une alert
     func alertDialog(title: String, msg: String){
