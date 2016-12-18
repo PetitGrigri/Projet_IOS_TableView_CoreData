@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B097CAA1E058D6F00819CC2 /* pic_pol.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3B097CA91E058D6F00819CC2 /* pic_pol.jpg */; };
 		3BCA2EE71E008B2500E7B2F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCA2EE61E008B2500E7B2F3 /* AppDelegate.swift */; };
 		3BCA2EE91E008B2500E7B2F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCA2EE81E008B2500E7B2F3 /* ViewController.swift */; };
 		3BCA2EEC1E008B2500E7B2F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BCA2EEA1E008B2500E7B2F3 /* Main.storyboard */; };
@@ -16,7 +15,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3B097CA91E058D6F00819CC2 /* pic_pol.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = pic_pol.jpg; path = ../../../../pic_pol.jpg; sourceTree = "<group>"; };
 		3BCA2EE31E008B2500E7B2F3 /* socialShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = socialShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BCA2EE61E008B2500E7B2F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3BCA2EE81E008B2500E7B2F3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,7 +58,6 @@
 				3BCA2EE81E008B2500E7B2F3 /* ViewController.swift */,
 				3BCA2EEA1E008B2500E7B2F3 /* Main.storyboard */,
 				3BCA2EED1E008B2500E7B2F3 /* Assets.xcassets */,
-				3B097CA91E058D6F00819CC2 /* pic_pol.jpg */,
 				3BCA2EEF1E008B2500E7B2F3 /* LaunchScreen.storyboard */,
 				3BCA2EF21E008B2500E7B2F3 /* Info.plist */,
 			);
@@ -126,7 +123,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B097CAA1E058D6F00819CC2 /* pic_pol.jpg in Resources */,
 				3BCA2EF11E008B2500E7B2F3 /* LaunchScreen.storyboard in Resources */,
 				3BCA2EEE1E008B2500E7B2F3 /* Assets.xcassets in Resources */,
 				3BCA2EEC1E008B2500E7B2F3 /* Main.storyboard in Resources */,
