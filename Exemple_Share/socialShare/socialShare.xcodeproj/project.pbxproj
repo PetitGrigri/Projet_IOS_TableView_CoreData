@@ -16,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+
 		05C81FD11E05AFD800641C99 /* pic_pol.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic_pol.jpg; sourceTree = "<group>"; };
 		3BCA2EE31E008B2500E7B2F3 /* socialShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = socialShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BCA2EE61E008B2500E7B2F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
