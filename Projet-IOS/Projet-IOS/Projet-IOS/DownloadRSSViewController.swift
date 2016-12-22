@@ -16,7 +16,7 @@ class DownloadRSSViewController: UIViewController {
     
     
     
-    private let listeFluxRSS : [String] = ["http://www.lemonde.fr/m-actu/rss_full.xml", "https://www.contrepoints.org/feed"]
+    private let listeFluxRSS : [String] = ["http://www.lemonde.fr/m-actu/rss_full.xml", "https://www.contrepoints.org/feed", "http://www.lefigaro.fr/rss/figaro_flash-actu.xml"]
     
     
     
@@ -34,74 +34,7 @@ class DownloadRSSViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        progressionSpinner.startAnimating()
-
-        labelProgression.text = "Téléchargements des flux RSS"
-
-        if let context = DataManager.shared.objectContext {
-
-            //récupération / affichage des itemsRSS
-            let fetchRequest: NSFetchRequest  <ItemsRSS> = ItemsRSS.fetchRequest()
-            
-            //permet de connaitre le nombre d'itemsRSS et de les supprimer s'il y en a
-            let countItemRSS = try? context.count(for: fetchRequest)
-            print("Nombre d'itemRSS : \(countItemRSS!)")
-            
-            if countItemRSS! > 0 {
-                labelProgression.text = "Suppression des anciens articles"
-                //suppression des itemsRSS
-                let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest as! NSFetchRequest<NSFetchRequestResult>)
-                do {
-                    try context.execute(deleteRequest)
-                    try context.save()
-                } catch {
-                    print (error)
-                }
-            }
-            
-            
-            //on parcours la liste de nos flux RSS et on les parcourera ensuite, afin de les enregistrer Dans notre model ItemsRSS
-            let parserRSSDelegate = RSSXMLParserDelegate()
-            
-            for fluxRSS in listeFluxRSS {
-                
-                
-                if let urlFluxRSS = URL(string: fluxRSS) {
-                    labelProgression.text = "Téléchargement des vos flux RSS \n \(fluxRSS)"
-                    if let myRSSParser = XMLParser(contentsOf: urlFluxRSS) {
-                        
-                        myRSSParser.delegate = parserRSSDelegate
-                        myRSSParser.parse()
-                        
-                        for itemRSS in parserRSSDelegate.items {
-                            //Ajout d'un itemRSS (commitStrip)
-                            if let itemModel = NSEntityDescription.insertNewObject(forEntityName: "ItemsRSS", into: context) as? ItemsRSS {
-                                itemModel.title = itemRSS.title
-                                itemModel.link  = itemRSS.link
-                                itemModel.author = itemRSS.author
-                                itemModel.rss_description = itemRSS.rssDescription
-
-                            }
-                        }
-                        parserRSSDelegate.items.removeAll()
-                    }
-                }
-            }
-            
-            
-            //sauvegarde des items précédents
-            do {
-                try context.save()
-                print("sauvegarde réalisée")
-            } catch {
-                print("erreur de la sauvegarde de l'article")
-            }
-
-        }
         
-        labelProgression.text = ""
-        progressionSpinner.stopAnimating()
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -113,7 +46,81 @@ class DownloadRSSViewController: UIViewController {
     //cette méthode est lancé à chaque fois que la UIViewController est affiché
     override func viewDidAppear(_ animated: Bool) {
         //lancement de l'animation
+        progressionSpinner.hidesWhenStopped = true
+        progressionSpinner.startAnimating()
+        labelProgression.text = "Téléchargements des flux RSS en cours"
         
+        DispatchQueue.global(qos: .background).async {
+            
+            if let context = DataManager.shared.objectContext {
+                
+                //récupération / affichage des itemsRSS
+                let fetchRequest: NSFetchRequest  <ItemsRSS> = ItemsRSS.fetchRequest()
+                
+                //permet de connaitre le nombre d'itemsRSS et de les supprimer s'il y en a
+                let countItemRSS = try? context.count(for: fetchRequest)
+                print("Nombre d'itemRSS : \(countItemRSS!)")
+                
+                if countItemRSS! > 0 {
+                    //labelProgression.text = "Suppression des anciens articles"
+                    //suppression des itemsRSS
+                    let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest as! NSFetchRequest<NSFetchRequestResult>)
+                    do {
+                        try context.execute(deleteRequest)
+                        try context.save()
+                    } catch {
+                        print (error)
+                    }
+                }
+                
+                
+                //on parcours la liste de nos flux RSS et on les parcourera ensuite, afin de les enregistrer Dans notre model ItemsRSS
+                let parserRSSDelegate = RSSXMLParserDelegate()
+                
+                for fluxRSS in self.listeFluxRSS {
+                    
+                    
+                    if let urlFluxRSS = URL(string: fluxRSS) {
+                        DispatchQueue.main.async {
+                            self.labelProgression.text = "Téléchargement des vos flux RSS \n \(fluxRSS)"
+                        }
+                        if let myRSSParser = XMLParser(contentsOf: urlFluxRSS) {
+                            
+                            myRSSParser.delegate = parserRSSDelegate
+                            myRSSParser.parse()
+                            
+                            for itemRSS in parserRSSDelegate.items {
+                                //Ajout d'un itemRSS (commitStrip)
+                                if let itemModel = NSEntityDescription.insertNewObject(forEntityName: "ItemsRSS", into: context) as? ItemsRSS {
+                                    itemModel.title = itemRSS.title
+                                    itemModel.link  = itemRSS.link
+                                    itemModel.author = itemRSS.author
+                                    itemModel.rss_description = itemRSS.rssDescription
+                                    
+                                }
+                            }
+                            parserRSSDelegate.items.removeAll()
+                        }
+                    }
+                }
+                
+                
+                //sauvegarde des items précédents
+                do {
+                    try context.save()
+                    print("sauvegarde réalisée")
+                } catch {
+                    print("erreur de la sauvegarde de l'article")
+                }
+                
+            }
+            
+            DispatchQueue.main.async {
+                self.labelProgression.text = "Téléchargements des flux RSS terminé"
+                self.progressionSpinner.stopAnimating()
+            }
+            
+        }
         
 
         
