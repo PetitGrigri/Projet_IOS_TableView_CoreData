@@ -8,16 +8,12 @@
 
 
 import UIKit
+import CoreData
 
 class ListArticlesViewController: UITableViewController {
     
     //variable contenant des fruits
-    private  var articles = ["Apple", "Apricot", "Banana", "Blueberry", "Cantaloupe", "Cherry",
-                           "Clementine", "Coconut", "Cranberry", "Fig", "Grape", "Grapefruit",
-                           "Kiwi fruit", "Lemon", "Lime", "Lychee", "Mandarine", "Mango",
-                           "Melon", "Nectarine", "Olive", "Orange", "Papaya", "Peach",
-                           "Pear", "Pineapple", "Raspberry", "Strawberry"]
-    
+    private  var articles:[ItemsRSS] = []
     
     
     //TODO COMPRENDRE A QUOI SERT CE NSCODER
@@ -33,20 +29,35 @@ class ListArticlesViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let context = DataManager.shared.objectContext {
+            
+            //récupération / affichage des itemsRSS
+            let fetchRequest: NSFetchRequest  <ItemsRSS> = ItemsRSS.fetchRequest()
+            
+            if let rows = try? context.fetch(fetchRequest) {
+                for item in rows {
+                    articles.append(item)
+                }
+            }
+            
+        }
+        self.tableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
+    /*
     //Méthode indiquant le nombre de section de notre table view
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+     */
     
     //Méthode indiquant le nombre de fruit pour la section
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.articles.count
+        return articles.count
     }
     
     //Méthode permettant de créer ou de renvoyer une cellule
@@ -57,31 +68,23 @@ class ListArticlesViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "articleCell", for: indexPath)
         
         //récupération du nom du fuit à afficher
-        let fruitName = articles[indexPath.row]
+        let article = articles[indexPath.row]
         
         //remplissage du texte du fruit ainsi que du sous titre
-        cell.detailTextLabel?.text = "Delicious!"
-        cell.textLabel?.text = fruitName
+        cell.detailTextLabel?.text = article.rss_description
+        cell.textLabel?.text = article.title
         
         
-        
-        //on set ici l'image (si cette image existe (ici les images se trouve dans le dossier Assets.xcassets)
-        if let imageFruit = UIImage(named: fruitName) {
-            cell.imageView?.image = imageFruit                                  //on set l'image
-            cell.imageView?.frame = CGRect(x:0.0,y:0.0,width:40.0,height:40.0)  //on set la taille de l'image
-            cell.imageView?.layer.cornerRadius = 22                             //on affiche l'image dans un frame "ronde"
-            cell.imageView?.clipsToBounds = true                                //on coupe l'image qui dépasse de cette frame
-            cell.imageView?.layer.borderWidth = 2                               //taille de la bordure
-            cell.imageView?.layer.borderColor = UIColor.init(red: 0.95, green: 0.95, blue: 1, alpha: 1).cgColor //couleur de la bordure
-        }
         
         //retour de la cellule
         return cell
     }
-    
+    /*
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "articles (section \(section + 1))"
     }
+ 
+     */
     
     /*
      // Override to support conditional editing of the table view.

@@ -67,18 +67,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="BTU-le-q2O">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="BTU-le-q2O" userLabel="progressionSpinner">
                                 <rect key="frame" x="177" y="323" width="20" height="20"/>
                             </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="labelProgression" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aNP-me-aOM">
+                                <rect key="frame" x="0.0" y="351" width="375" height="59"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="BTU-le-q2O" firstAttribute="centerY" secondItem="UFh-7S-iE5" secondAttribute="centerY" id="B2r-ei-FjE"/>
+                            <constraint firstItem="aNP-me-aOM" firstAttribute="top" secondItem="BTU-le-q2O" secondAttribute="bottom" constant="8" id="De0-0b-q8D"/>
                             <constraint firstItem="BTU-le-q2O" firstAttribute="centerX" secondItem="UFh-7S-iE5" secondAttribute="centerX" id="Gen-Zi-fQ6"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="X22-fI-gNj"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="labelProgression" destination="aNP-me-aOM" id="xYx-7d-EQQ"/>
+                        <outlet property="progressionSpinner" destination="BTU-le-q2O" id="IbE-FJ-eHT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zxd-YN-Vmn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -128,6 +139,9 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="dY1-xV-XEv"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="BDu-bI-diW" id="BOy-zb-2rQ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VoW-ej-fl8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -183,7 +197,6 @@
         <!--Item-->
         <scene sceneID="Xml-ag-zQ5">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0cM-i8-0Ul" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="193-3Q-cV0" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="dtp-Zq-ntY"/>
                     <toolbarItems/>
@@ -196,6 +209,7 @@
                         <segue destination="yG6-5e-1Mt" kind="relationship" relationship="rootViewController" id="ezS-Qq-Gj3"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0cM-i8-0Ul" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1959.2" y="533.88305847076469"/>
         </scene>
