@@ -18,43 +18,59 @@ class ViewController: UIViewController {
         
         if let context = dataManager.objectContext {
             
-            //création d'un itemsRSS
-            /* //le faire qu'une fois (histoire d'insérer un enregistrement
+            //récupération / affichage des itemsRSS
+            let fetchRequest: NSFetchRequest  <ItemsRSS> = ItemsRSS.fetchRequest()
+            
+            //permet de connaitre le nombre d'itemsRSS
+            let countItemRSS = try? context.count(for: fetchRequest)
+            print("Nombre d'itemRSS : \(countItemRSS!)")
+            
+            if countItemRSS! > 0 {
+                //suppression des itemsRSS
+                let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest as! NSFetchRequest<NSFetchRequestResult>)
+                do {
+                    try context.execute(deleteRequest)
+                    try context.save()
+                    print("suppression des itemRSS réalisées")
+                } catch {
+                    print (error)
+                }
+            }
+        
+            //Ajout d'un itemRSS (commitStrip)
             if let item = NSEntityDescription.insertNewObject(forEntityName: "ItemsRSS", into: context) as? ItemsRSS {
                 item.title = "commitstrip"
                 item.author = "fan de strip"
                 item.rss_description = "strip sur le monde IT"
                 item.link = "http://www.commitstrip.com/fr/"
-             
-            }*/
+            }
             
-            //récupération / affichage des itemsRSS
-            let fetchRequest: NSFetchRequest <ItemsRSS> = ItemsRSS.fetchRequest()
+            //Ajout d'un itemRSS (les joies du code)
+            if let item = NSEntityDescription.insertNewObject(forEntityName: "ItemsRSS", into: context) as? ItemsRSS {
+                item.title = "Les joies du code/"
+                item.author = "pause café"
+                item.rss_description = "images humoristiques sur le monde des développeur"
+                item.link = "http://lesjoiesducode.fr/"
+            }
+            
+            //sauvegarde des items précédents
+            do {
+                try context.save()
+                print("sauvegarde réalisée")
+            } catch {
+                print("erreur de la sauvegarde de l'article")
+            }
+        
             
             if let rows = try? context.fetch(fetchRequest) {
                 for i in rows {
                     print("Item RSS : \n  Title : \(i.title!) \n  Description : \(i.rss_description!) \n  Link : \(i.link!)")
                     
-                    //context.delete pour supprimer
+                    //context.delete pour supprimer (méthode lente)
                 }
             }
-            
-            
-            /*
-             //réalisation d'une sauvegarde
-             do {
-                try context.save()
-                print("sauvegarde réalisée")
-            } catch {
-                print("erreur de la sauvegarde de l'article")
-            }*/
-            
         }
-            
-        
-        
-        
-        // Do any additional setup after loading the view, typically from a nib.
+
     }
 
     override func didReceiveMemoryWarning() {

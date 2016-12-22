@@ -16,9 +16,10 @@ class DataManager : NSObject {
     
     private override init(){
         if let modelUrl = Bundle.main.url(forResource: "Entities", withExtension: "momd") {
+            print ("modelUrl : \(modelUrl.description)")
             if let model = NSManagedObjectModel(contentsOf: modelUrl){
                 if let storageUrl = FileManager.documentURL(childPath: "MyDataBase.db"){
-                    print(storageUrl);
+                    print ("storageUrl : \(storageUrl.description)")
                     let storeCoordinator = NSPersistentStoreCoordinator(managedObjectModel: model)
                     _ = try? storeCoordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: storageUrl, options: nil)
                     
