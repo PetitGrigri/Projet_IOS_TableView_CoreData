@@ -19,6 +19,7 @@
 		054D78A31E08813E00D04564 /* ListArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054D78A21E08813E00D04564 /* ListArticlesViewController.swift */; };
 		054D78A71E0884C800D04564 /* ListRSSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054D78A61E0884C800D04564 /* ListRSSViewController.swift */; };
 		054D78AF1E0886E900D04564 /* DownloadRSSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054D78AE1E0886E900D04564 /* DownloadRSSViewController.swift */; };
+		05CD28B01E0DD0CF00EC7FD0 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CD28AF1E0DD0CF00EC7FD0 /* ArticleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		054D78A21E08813E00D04564 /* ListArticlesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListArticlesViewController.swift; sourceTree = "<group>"; };
 		054D78A61E0884C800D04564 /* ListRSSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListRSSViewController.swift; sourceTree = "<group>"; };
 		054D78AE1E0886E900D04564 /* DownloadRSSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadRSSViewController.swift; sourceTree = "<group>"; };
+		05CD28AF1E0DD0CF00EC7FD0 /* ArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				054D789C1E087D0100D04564 /* Info.plist */,
 				054D78A21E08813E00D04564 /* ListArticlesViewController.swift */,
 				054D78A61E0884C800D04564 /* ListRSSViewController.swift */,
+				05CD28AF1E0DD0CF00EC7FD0 /* ArticleViewController.swift */,
 				054D78AE1E0886E900D04564 /* DownloadRSSViewController.swift */,
 				0503EB351E0C768C00D73110 /* RSSXMLParserDelegate.swift */,
 				0503EB371E0C776A00D73110 /* ItemRSS.swift */,
@@ -180,6 +183,7 @@
 				0503EB321E0C732500D73110 /* DataManager.swift in Sources */,
 				054D78A71E0884C800D04564 /* ListRSSViewController.swift in Sources */,
 				0503EB361E0C768C00D73110 /* RSSXMLParserDelegate.swift in Sources */,
+				05CD28B01E0DD0CF00EC7FD0 /* ArticleViewController.swift in Sources */,
 				054D78A31E08813E00D04564 /* ListArticlesViewController.swift in Sources */,
 				0503EB381E0C776A00D73110 /* ItemRSS.swift in Sources */,
 			);

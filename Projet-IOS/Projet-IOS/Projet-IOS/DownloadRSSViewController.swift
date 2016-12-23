@@ -16,7 +16,7 @@ class DownloadRSSViewController: UIViewController {
     
     
     
-    private let listeFluxRSS : [String] = ["http://www.lemonde.fr/m-actu/rss_full.xml", "https://www.contrepoints.org/feed", "http://www.lefigaro.fr/rss/figaro_flash-actu.xml"]
+    private let listeFluxRSS : [String] = []
     
     
     

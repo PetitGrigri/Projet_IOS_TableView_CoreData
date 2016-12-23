@@ -129,7 +129,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="39k-9g-02i" kind="show" id="PHp-Tb-leD"/>
+                                    <segue destination="39k-9g-02i" kind="show" identifier="showArticleSegue" id="PHp-Tb-leD"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -153,7 +153,7 @@
         <!--Votre article-->
         <scene sceneID="Iu0-Ti-ZBW">
             <objects>
-                <viewController title="Votre article" id="39k-9g-02i" sceneMemberID="viewController">
+                <viewController title="Votre article" id="39k-9g-02i" customClass="ArticleViewController" customModule="Projet_IOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IG6-Bf-wVU"/>
                         <viewControllerLayoutGuide type="bottom" id="tKU-It-FUC"/>

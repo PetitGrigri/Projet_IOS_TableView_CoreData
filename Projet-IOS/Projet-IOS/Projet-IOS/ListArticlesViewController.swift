@@ -29,19 +29,24 @@ class ListArticlesViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         if let context = DataManager.shared.objectContext {
             
             //récupération / affichage des itemsRSS
             let fetchRequest: NSFetchRequest  <ItemsRSS> = ItemsRSS.fetchRequest()
             
             if let rows = try? context.fetch(fetchRequest) {
+                articles = []
                 for item in rows {
                     articles.append(item)
                 }
+                self.tableView.reloadData()
             }
             
         }
-        self.tableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -121,14 +126,18 @@ class ListArticlesViewController: UITableViewController {
      }
      */
     
-    /*
+    
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      // Get the new view controller using segue.destinationViewController.
      // Pass the selected object to the new view controller.
+        print(sender.debugDescription)
+
+        
+        
      }
-     */
+    
     
 }
