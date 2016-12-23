@@ -10,12 +10,12 @@ import UIKit
 
 class ArticleViewController: UIViewController {
     
-    var contenuArticle:String = ""
+    var article:ItemsRSS?
     
+    @IBOutlet weak var articleWebView: UIWebView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,6 +24,10 @@ class ArticleViewController: UIViewController {
     }
     
 
+    override func viewDidAppear(_ animated: Bool) {
+        print(article!)
+        articleWebView.loadHTMLString((article?.rss_description)!, baseURL: nil)
+    }
     /*
     // MARK: - Navigation
 

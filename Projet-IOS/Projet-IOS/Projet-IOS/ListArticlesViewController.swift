@@ -134,8 +134,14 @@ class ListArticlesViewController: UITableViewController {
      // Get the new view controller using segue.destinationViewController.
      // Pass the selected object to the new view controller.
         print(sender.debugDescription)
-
         
+        if (segue.identifier == "showArticleSegue") {
+            if let indexSelectedRow = self.tableView.indexPathForSelectedRow {
+                let articleViewController = segue.destination as! ArticleViewController
+                
+                articleViewController.article = articles[indexSelectedRow.row]
+            }
+        }
         
      }
     

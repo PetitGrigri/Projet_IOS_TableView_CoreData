@@ -4,12 +4,15 @@
         <attribute name="author" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="comments" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="contentEncoded" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="guid" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="pub_date" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rss_description" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="source" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="ItemsRSS" positionX="-63" positionY="-18" width="128" height="150"/>
+        <element name="ItemsRSS" positionX="-63" positionY="-18" width="128" height="195"/>
     </elements>
 </model>

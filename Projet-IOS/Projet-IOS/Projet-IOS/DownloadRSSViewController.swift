@@ -16,7 +16,7 @@ class DownloadRSSViewController: UIViewController {
     
     
     
-    private let listeFluxRSS : [String] = []
+    private let listeFluxRSS : [String] = ["http://korben.info/feed"]
     
     
     
@@ -96,6 +96,10 @@ class DownloadRSSViewController: UIViewController {
                                     itemModel.link  = itemRSS.link
                                     itemModel.author = itemRSS.author
                                     itemModel.rss_description = itemRSS.rssDescription
+                                    itemModel.category = itemRSS.description
+                                    itemModel.comments = itemRSS.comments
+                                    itemModel.pub_date = itemRSS.pubDate
+                                    
                                     
                                 }
                             }
