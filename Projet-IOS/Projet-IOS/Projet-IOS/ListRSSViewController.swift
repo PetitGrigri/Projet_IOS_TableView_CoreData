@@ -12,7 +12,7 @@ import UIKit
 class ListRSSViewController: UITableViewController {
     
     //variable contenant des fruits
-    private  var articles:[String:String] = ["International : Toute l'actualité sur Le Monde.fr":"Mon, 19 Dec 2016 22:19:05", "Contrepoints":"lun, 19 Déc 2016 18:10:09"]
+    private  var articles:[String:String] = ["International : Toute l'actualité sur Le Monde.fr":"lun, 19 Dec 2016 22:19:05", "Contrepoints":"lun, 19 Déc 2016 18:10:09"]
     
     
     

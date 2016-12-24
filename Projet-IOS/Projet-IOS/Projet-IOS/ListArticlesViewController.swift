@@ -12,7 +12,7 @@ import CoreData
 
 class ListArticlesViewController: UITableViewController {
     
-    //variable contenant des fruits
+    //variable contenant des articles
     private  var articles:[ItemsRSS] = []
     
     
@@ -33,6 +33,7 @@ class ListArticlesViewController: UITableViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
         if let context = DataManager.shared.objectContext {
             
             //récupération / affichage des itemsRSS

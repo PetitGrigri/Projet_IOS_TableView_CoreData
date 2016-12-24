@@ -13,6 +13,7 @@ class ArticleViewController: UIViewController {
     var article:ItemsRSS?
     
     @IBOutlet weak var articleWebView: UIWebView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,14 +29,14 @@ class ArticleViewController: UIViewController {
         print(article!)
         articleWebView.loadHTMLString((article?.rss_description)!, baseURL: nil)
     }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func shareButton(_ sender: Any) {
+        
+        let shareArticle = article?.title
+        let exempleUrl = NSURL(string: (article?.link)!)
+        
+        let activityViewController = UIActivityViewController(activityItems: [shareArticle!,exempleUrl!],applicationActivities: nil)
+        self.present(activityViewController, animated: true, completion: {})
+        
     }
-    */
-
 }
