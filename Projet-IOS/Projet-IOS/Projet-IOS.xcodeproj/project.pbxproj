@@ -87,6 +87,7 @@
 		054D788F1E087D0000D04564 /* Projet-IOS */ = {
 			isa = PBXGroup;
 			children = (
+				057484431E1081790016416F /* Controllers */,
 				0503EB341E0C735400D73110 /* Model */,
 				0503EB331E0C732C00D73110 /* Extensions */,
 				054D78901E087D0000D04564 /* AppDelegate.swift */,
@@ -94,14 +95,21 @@
 				054D78971E087D0000D04564 /* Assets.xcassets */,
 				054D78991E087D0000D04564 /* LaunchScreen.storyboard */,
 				054D789C1E087D0100D04564 /* Info.plist */,
-				054D78A21E08813E00D04564 /* ListArticlesViewController.swift */,
-				054D78A61E0884C800D04564 /* ListRSSViewController.swift */,
-				05CD28AF1E0DD0CF00EC7FD0 /* ArticleViewController.swift */,
-				054D78AE1E0886E900D04564 /* DownloadRSSViewController.swift */,
 				0503EB351E0C768C00D73110 /* RSSXMLParserDelegate.swift */,
 				0503EB371E0C776A00D73110 /* ItemRSS.swift */,
 			);
 			path = "Projet-IOS";
+			sourceTree = "<group>";
+		};
+		057484431E1081790016416F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				054D78A21E08813E00D04564 /* ListArticlesViewController.swift */,
+				054D78A61E0884C800D04564 /* ListRSSViewController.swift */,
+				05CD28AF1E0DD0CF00EC7FD0 /* ArticleViewController.swift */,
+				054D78AE1E0886E900D04564 /* DownloadRSSViewController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -311,6 +319,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.esgi.adamsha.griselles.Projet-IOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -323,6 +332,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.esgi.adamsha.griselles.Projet-IOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

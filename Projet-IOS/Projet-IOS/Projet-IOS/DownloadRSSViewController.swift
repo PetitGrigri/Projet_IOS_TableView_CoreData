@@ -16,7 +16,7 @@ class DownloadRSSViewController: UIViewController {
     
     
     
-    private let listeFluxRSS : [String] = ["http://korben.info/feed"]
+    private let listeFluxRSS : [String] = ["http://korben.info/feed", "https://www.contrepoints.org/feed"]
     
     
     
