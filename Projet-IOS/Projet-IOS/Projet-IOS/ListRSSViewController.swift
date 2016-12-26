@@ -12,11 +12,9 @@ import UIKit
 class ListRSSViewController: UITableViewController {
     
     //variable contenant des fruits
-    private  var articles:[String:String] = ["International : Toute l'actualité sur Le Monde.fr":"lun, 19 Dec 2016 22:19:05", "Contrepoints":"lun, 19 Déc 2016 18:10:09"]
+    private  var fluxRSS:[String:String] = ["International : Toute l'actualité sur Le Monde.fr":"lun, 19 Dec 2016 22:19:05", "Contrepoints":"lun, 19 Déc 2016 18:10:09"]
     
-    
-    
-    //TODO COMPRENDRE A QUOI SERT CE NSCODER
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
@@ -35,14 +33,10 @@ class ListRSSViewController: UITableViewController {
         super.didReceiveMemoryWarning()
     }
     
-    //Méthode indiquant le nombre de section de notre table view
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
     
     //Méthode indiquant le nombre de fruit pour la section
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.articles.count
+        return self.fluxRSS.count
     }
     
     //Méthode permettant de créer ou de renvoyer une cellule
@@ -52,17 +46,12 @@ class ListRSSViewController: UITableViewController {
         //si on avait pas fait comme ca on aurait du (sauf erreur créer à la main notre cellule)
         let cell = tableView.dequeueReusableCell(withIdentifier: "rssCell", for: indexPath)
         
-
-        
         //remplissage du texte du fruit ainsi que du sous titre
-        cell.detailTextLabel?.text = Array(articles.values)[indexPath.row]
-        cell.textLabel?.text = Array(articles.keys)[indexPath.row]
-                //retour de la cellule
+        cell.detailTextLabel?.text = Array(fluxRSS.values)[indexPath.row]
+        cell.textLabel?.text = Array(fluxRSS.keys)[indexPath.row]
+        
+        //retour de la cellule
         return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "articles (section \(section + 1))"
     }
     
     

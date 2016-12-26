@@ -48,12 +48,12 @@
                             <outlet property="delegate" destination="IqX-zl-GhF" id="p7c-ve-44K"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="m9Q-FT-2Ud"/>
+                    <navigationItem key="navigationItem" title="Vos flux RSS" id="BF1-mc-Y0K"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EaM-m6-t9Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="457" y="534"/>
+            <point key="canvasLocation" x="1396" y="533.88305847076469"/>
         </scene>
         <!--Actualiser-->
         <scene sceneID="ORe-oe-dbM">
@@ -68,7 +68,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="BTU-le-q2O" userLabel="progressionSpinner">
-                                <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
+                                <rect key="frame" x="178" y="324" width="20" height="20"/>
                             </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="labelProgression" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aNP-me-aOM">
                                 <rect key="frame" x="0.0" y="351" width="375" height="41"/>
@@ -85,7 +85,7 @@
                             <constraint firstItem="BTU-le-q2O" firstAttribute="centerX" secondItem="UFh-7S-iE5" secondAttribute="centerX" id="Gen-Zi-fQ6"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="X22-fI-gNj"/>
+                    <navigationItem key="navigationItem" title="Téléchargement des articles" id="pHf-IW-Ffd"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="labelProgression" destination="aNP-me-aOM" id="xYx-7d-EQQ"/>
@@ -94,7 +94,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zxd-YN-Vmn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1176.8" y="533.88305847076469"/>
+            <point key="canvasLocation" x="3055.1999999999998" y="533.88305847076469"/>
         </scene>
         <!--Vos articles-->
         <scene sceneID="WPM-g7-lUO">
@@ -138,7 +138,7 @@
                             <outlet property="delegate" destination="yG6-5e-1Mt" id="XXt-3W-Lht"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Liste de vos rticles" id="UOc-21-Bkn">
+                    <navigationItem key="navigationItem" title="Liste de vos articles" id="UOc-21-Bkn">
                         <barButtonItem key="backBarButtonItem" title="retour" id="hgc-gG-BiR"/>
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -202,8 +202,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="193-3Q-cV0" kind="relationship" relationship="viewControllers" id="PRM-3n-bmH"/>
-                        <segue destination="IqX-zl-GhF" kind="relationship" relationship="viewControllers" id="z90-ja-z59"/>
-                        <segue destination="kOl-I0-PEY" kind="relationship" relationship="viewControllers" id="pKz-kW-zqA"/>
+                        <segue destination="OnL-gd-7d1" kind="relationship" relationship="viewControllers" id="z90-ja-z59"/>
+                        <segue destination="G8X-hh-Z7v" kind="relationship" relationship="viewControllers" id="pKz-kW-zqA"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S6u-pD-RWN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -228,6 +228,44 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0cM-i8-0Ul" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1780" y="534"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="IiU-6p-3S7">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OnL-gd-7d1" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="m9Q-FT-2Ud"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="CeC-4V-RY3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="IqX-zl-GhF" kind="relationship" relationship="rootViewController" id="vJJ-OQ-CAD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="plH-WM-UIX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="456.80000000000001" y="533.88305847076469"/>
+        </scene>
+        <!--Item 2-->
+        <scene sceneID="BmD-KG-8mM">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="G8X-hh-Z7v" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item 2" id="X22-fI-gNj"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KUx-Yr-OCq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="kOl-I0-PEY" kind="relationship" relationship="rootViewController" id="tx0-Lj-JZz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="82O-A6-dWP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2116" y="533.88305847076469"/>
         </scene>
     </scenes>
     <resources>

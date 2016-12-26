@@ -48,8 +48,15 @@ class DownloadRSSViewController: UIViewController {
         //lancement de l'animation
         progressionSpinner.hidesWhenStopped = true
         progressionSpinner.startAnimating()
+        
+        //indication du téléchargement en cours
         labelProgression.text = "Téléchargements des flux RSS en cours"
         
+        //désactivation des items tabBar tant qu'on à pas terminé le téléchargement
+        self.tabBarController!.tabBar.items![0].isEnabled = false
+        self.tabBarController!.tabBar.items![1].isEnabled = false
+        
+        //réalisation du téléchargement des flux RSS en asynchrone
         DispatchQueue.global(qos: .background).async {
             
             if let context = DataManager.shared.objectContext {
@@ -132,6 +139,10 @@ class DownloadRSSViewController: UIViewController {
             DispatchQueue.main.async {
                 self.labelProgression.text = "Téléchargements des flux RSS terminé"
                 self.progressionSpinner.stopAnimating()
+                
+                //activation des items tabBar :)
+                self.tabBarController!.tabBar.items![0].isEnabled = true
+                self.tabBarController!.tabBar.items![1].isEnabled = true
             }
             
         }

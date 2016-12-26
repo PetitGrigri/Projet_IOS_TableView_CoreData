@@ -20,7 +20,16 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="rss-7" translatesAutoresizingMaskIntoConstraints="NO" id="68n-q9-Xk5">
+                                <rect key="frame" x="172" y="318" width="30" height="30"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="68n-q9-Xk5" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="ADM-jt-jAY"/>
+                            <constraint firstItem="68n-q9-Xk5" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="vGF-ok-dcG"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -28,4 +37,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="rss-7" width="30" height="30"/>
+    </resources>
 </document>

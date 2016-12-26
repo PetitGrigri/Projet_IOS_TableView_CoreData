@@ -59,13 +59,13 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
-		0503EB341E0C735400D73110 /* Model */ = {
+		0503EB341E0C735400D73110 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				0503EB311E0C732500D73110 /* DataManager.swift */,
 				0503EB391E0C7BFF00D73110 /* Entities.xcdatamodeld */,
 			);
-			name = Model;
+			name = Models;
 			sourceTree = "<group>";
 		};
 		054D78841E087D0000D04564 = {
@@ -87,13 +87,12 @@
 		054D788F1E087D0000D04564 /* Projet-IOS */ = {
 			isa = PBXGroup;
 			children = (
+				057484441E11CAC10016416F /* Vues */,
 				057484431E1081790016416F /* Controllers */,
-				0503EB341E0C735400D73110 /* Model */,
+				0503EB341E0C735400D73110 /* Models */,
 				0503EB331E0C732C00D73110 /* Extensions */,
 				054D78901E087D0000D04564 /* AppDelegate.swift */,
-				054D78941E087D0000D04564 /* Main.storyboard */,
 				054D78971E087D0000D04564 /* Assets.xcassets */,
-				054D78991E087D0000D04564 /* LaunchScreen.storyboard */,
 				054D789C1E087D0100D04564 /* Info.plist */,
 				0503EB351E0C768C00D73110 /* RSSXMLParserDelegate.swift */,
 				0503EB371E0C776A00D73110 /* ItemRSS.swift */,
@@ -110,6 +109,15 @@
 				054D78AE1E0886E900D04564 /* DownloadRSSViewController.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		057484441E11CAC10016416F /* Vues */ = {
+			isa = PBXGroup;
+			children = (
+				054D78941E087D0000D04564 /* Main.storyboard */,
+				054D78991E087D0000D04564 /* LaunchScreen.storyboard */,
+			);
+			name = Vues;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
