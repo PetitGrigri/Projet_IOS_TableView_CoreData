@@ -138,7 +138,7 @@
                             <outlet property="delegate" destination="yG6-5e-1Mt" id="XXt-3W-Lht"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Liste articles" id="UOc-21-Bkn">
+                    <navigationItem key="navigationItem" title="Liste de vos rticles" id="UOc-21-Bkn">
                         <barButtonItem key="backBarButtonItem" title="retour" id="hgc-gG-BiR"/>
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>

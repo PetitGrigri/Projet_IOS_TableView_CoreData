@@ -26,8 +26,18 @@ class ArticleViewController: UIViewController {
     
 
     override func viewDidAppear(_ animated: Bool) {
-        print(article!)
-        articleWebView.loadHTMLString((article?.rss_description)!, baseURL: nil)
+
+        var contenuArticle = article?.rss_description
+        
+        if article?.content_encoded != nil {
+            if let dataContentEncoded = article?.content_encoded as Data! {
+                if let tempoContenu = String.init(data: dataContentEncoded, encoding: String.Encoding.utf8) {
+                    contenuArticle = tempoContenu
+                }
+            }
+        }
+        articleWebView.loadHTMLString(contenuArticle!, baseURL: nil)
+        self.navigationItem.title = article?.title
     }
 
     @IBAction func shareButton(_ sender: Any) {

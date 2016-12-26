@@ -100,6 +100,16 @@ class DownloadRSSViewController: UIViewController {
                                     itemModel.comments = itemRSS.comments
                                     itemModel.pub_date = itemRSS.pubDate
                                     
+                                    if !itemRSS.contentEncoded.isEmpty {
+                                        if let contentENcodedUTF8 = itemRSS.contentEncoded.data(using: String.Encoding.utf8) {
+                                            if let contentENcodedUTF8NSData = contentENcodedUTF8 as NSData! {
+                                                 itemModel.content_encoded = contentENcodedUTF8NSData
+                                            }
+                                        }
+                                    }
+                                    
+                                   
+                                    
                                     
                                 }
                             }
