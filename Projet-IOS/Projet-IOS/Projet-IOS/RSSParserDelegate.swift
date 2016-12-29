@@ -9,11 +9,11 @@
 import UIKit
 
 /**
-  * Un Delegate de Parser XML qui a pour but de parcourir un document RSS
+  * Un Delegate de Parser XML qui a pour but de parcourir une liste d'item RSS
   *
   *
   */
-class RSSXMLParserDelegate: NSObject, XMLParserDelegate {
+class RSSParserDelegate: NSObject, XMLParserDelegate {
     
     //une liste d'itemRSS
     var items:[ItemRSS] = []

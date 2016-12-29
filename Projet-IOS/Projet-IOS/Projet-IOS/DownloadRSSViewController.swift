@@ -82,7 +82,7 @@ class DownloadRSSViewController: UIViewController {
                 
                 
                 //on parcours la liste de nos flux RSS et on les parcourera ensuite, afin de les enregistrer Dans notre model ItemsRSS
-                let parserRSSDelegate = RSSXMLParserDelegate()
+                let parserRSSDelegate = RSSParserDelegate()
                 
                 for fluxRSS in self.listeFluxRSS {
                     

@@ -78,7 +78,7 @@ class ListArticlesViewController: UITableViewController {
         
         //remplissage du texte du fruit ainsi que du sous titre
         cell.textLabel?.text = article.title
-        cell.detailTextLabel?.text = article.rss_description
+        cell.detailTextLabel?.text = article.rss_description?.htmlToString()
         
         //retour de la cellule
         return cell

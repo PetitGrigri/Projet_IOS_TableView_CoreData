@@ -21,6 +21,10 @@ class ListRSSViewController: UITableViewController {
         // Initialisation du tabBarItem de ce controller (à faire pour chaque controller accessible via une tabBar pour le tunner ^^)
         self.tabBarItem = UITabBarItem(title: "Vos flux RSS", image: UIImage(named: "rss-7"), tag: 0)
         self.title = "Vos Flux RSS"
+        
+        
+
+        
     }
     
     
@@ -49,6 +53,12 @@ class ListRSSViewController: UITableViewController {
         //remplissage du texte du fruit ainsi que du sous titre
         cell.detailTextLabel?.text = Array(fluxRSS.values)[indexPath.row]
         cell.textLabel?.text = Array(fluxRSS.keys)[indexPath.row]
+        
+        //test
+        if let test:UIImage = UIImage.donwloadURL(withString: "https://www.contrepoints.org/wp-content/uploads/2016/03/cropped-Contrepoints-Logo-32x32.jpg") {
+            cell.imageView?.image = test
+        }
+        
         
         //retour de la cellule
         return cell
