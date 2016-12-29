@@ -20,7 +20,8 @@
 		054D78A71E0884C800D04564 /* ListRSSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054D78A61E0884C800D04564 /* ListRSSViewController.swift */; };
 		054D78AF1E0886E900D04564 /* DownloadRSSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054D78AE1E0886E900D04564 /* DownloadRSSViewController.swift */; };
 		057484461E1320770016416F /* UIImage+downloadUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057484451E1320770016416F /* UIImage+downloadUrl.swift */; };
-		0574844A1E15AB350016416F /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057484491E15AB350016416F /* File.swift */; };
+		0574844A1E15AB350016416F /* String+htmlToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057484491E15AB350016416F /* String+htmlToString.swift */; };
+		0574844C1E15B51C0016416F /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0574844B1E15B51C0016416F /* Channel.swift */; };
 		05CD28B01E0DD0CF00EC7FD0 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CD28AF1E0DD0CF00EC7FD0 /* ArticleViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,7 +41,8 @@
 		054D78A61E0884C800D04564 /* ListRSSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListRSSViewController.swift; sourceTree = "<group>"; };
 		054D78AE1E0886E900D04564 /* DownloadRSSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadRSSViewController.swift; sourceTree = "<group>"; };
 		057484451E1320770016416F /* UIImage+downloadUrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+downloadUrl.swift"; sourceTree = "<group>"; };
-		057484491E15AB350016416F /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		057484491E15AB350016416F /* String+htmlToString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+htmlToString.swift"; sourceTree = "<group>"; };
+		0574844B1E15B51C0016416F /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		05CD28AF1E0DD0CF00EC7FD0 /* ArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,7 +62,7 @@
 			children = (
 				0503EB2F1E0C731800D73110 /* FileManager+documentUrl.swift */,
 				057484451E1320770016416F /* UIImage+downloadUrl.swift */,
-				057484491E15AB350016416F /* File.swift */,
+				057484491E15AB350016416F /* String+htmlToString.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -101,6 +103,7 @@
 				054D78971E087D0000D04564 /* Assets.xcassets */,
 				054D789C1E087D0100D04564 /* Info.plist */,
 				0503EB351E0C768C00D73110 /* RSSParserDelegate.swift */,
+				0574844B1E15B51C0016416F /* Channel.swift */,
 				0503EB371E0C776A00D73110 /* ItemRSS.swift */,
 			);
 			path = "Projet-IOS";
@@ -199,8 +202,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0503EB301E0C731800D73110 /* FileManager+documentUrl.swift in Sources */,
-				0574844A1E15AB350016416F /* File.swift in Sources */,
+				0574844A1E15AB350016416F /* String+htmlToString.swift in Sources */,
 				057484461E1320770016416F /* UIImage+downloadUrl.swift in Sources */,
+				0574844C1E15B51C0016416F /* Channel.swift in Sources */,
 				054D78911E087D0000D04564 /* AppDelegate.swift in Sources */,
 				0503EB3B1E0C7BFF00D73110 /* Entities.xcdatamodeld in Sources */,
 				054D78AF1E0886E900D04564 /* DownloadRSSViewController.swift in Sources */,

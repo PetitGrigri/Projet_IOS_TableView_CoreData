@@ -81,6 +81,30 @@ class DownloadRSSViewController: UIViewController {
                 }
                 
                 
+                
+                //récupération / affichage des channelRSS
+                let fetchRequestChannel: NSFetchRequest  <ChannelRSS> = ChannelRSS.fetchRequest()
+                
+                //permet de connaitre le nombre d'itemsRSS et de les supprimer s'il y en a
+                let countChannelRSS = try? context.count(for: fetchRequestChannel)
+                print("Nombre de ChannelRss : \(countChannelRSS!)")
+                
+                if countChannelRSS! > 0 {
+                    //labelProgression.text = "Suppression des anciens articles"
+                    //suppression des itemsRSS
+                    let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequestChannel as! NSFetchRequest<NSFetchRequestResult>)
+                    do {
+                        try context.execute(deleteRequest)
+                        try context.save()
+                    } catch {
+                        print (error)
+                    }
+                }
+                
+                
+                
+                
+                
                 //on parcours la liste de nos flux RSS et on les parcourera ensuite, afin de les enregistrer Dans notre model ItemsRSS
                 let parserRSSDelegate = RSSParserDelegate()
                 
@@ -120,6 +144,23 @@ class DownloadRSSViewController: UIViewController {
                                     
                                 }
                             }
+                            
+                            
+                            if let channelRSS = NSEntityDescription.insertNewObject(forEntityName: "ChannelRSS", into: context) as? ChannelRSS {
+                                channelRSS.title = parserRSSDelegate.channel.title
+                                channelRSS.description_channel = parserRSSDelegate.channel.descriptionChannel
+                                channelRSS.link = parserRSSDelegate.channel.link
+                                
+                                if !parserRSSDelegate.channel.urlImage.isEmpty {
+                                    let imageTempo:UIImage = UIImage.donwloadURL(withString: parserRSSDelegate.channel.urlImage)
+                                    channelRSS.image = UIImagePNGRepresentation(imageTempo) as NSData?
+
+                                }
+                            }
+
+                            
+                            print(parserRSSDelegate.channel)
+                            parserRSSDelegate.channel = Channel()
                             parserRSSDelegate.items.removeAll()
                         }
                     }

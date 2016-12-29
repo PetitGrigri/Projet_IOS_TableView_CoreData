@@ -10,7 +10,7 @@ import UIKit
 
 /**
   * Abstraction d'un item d'un flux RSS
-  * Cette classe se base sur les spécifications RSS de la W3C disponible à l'adresse : 
+  * Cette classe se base sur les spécifications RSS des Items de la W3C disponible à l'adresse : 
   *     https://validator.w3.org/feed/docs/rss2.html
   * les informations sur content:encoded peuvent être trouvées ici : 
   *     http://www.rssboard.org/rss-profile#namespace-elements-content-encoded

@@ -15,8 +15,6 @@ class ListArticlesViewController: UITableViewController {
     //variable contenant des articles
     private  var articles:[ItemsRSS] = []
     
-    
-    //TODO COMPRENDRE A QUOI SERT CE NSCODER
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         

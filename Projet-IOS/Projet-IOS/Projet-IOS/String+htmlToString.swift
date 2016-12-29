@@ -14,7 +14,7 @@ extension String {
             
             do {
                 let attributedString:NSAttributedString = try NSAttributedString(data: dataFromString, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue], documentAttributes: nil)
-                return attributedString.string
+                return attributedString.string.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
             } catch {
                 return self
             }

@@ -8,10 +8,14 @@
 
 
 import UIKit
+import CoreData
 
 class ListRSSViewController: UITableViewController {
     
-    //variable contenant des fruits
+
+    //variable contenant les informations du channel de nos flux RSS
+    private  var channels:[ChannelRSS] = []
+    
     private  var fluxRSS:[String:String] = ["International : Toute l'actualité sur Le Monde.fr":"lun, 19 Dec 2016 22:19:05", "Contrepoints":"lun, 19 Déc 2016 18:10:09"]
     
 
@@ -40,7 +44,7 @@ class ListRSSViewController: UITableViewController {
     
     //Méthode indiquant le nombre de fruit pour la section
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.fluxRSS.count
+        return self.channels.count
     }
     
     //Méthode permettant de créer ou de renvoyer une cellule
@@ -51,12 +55,12 @@ class ListRSSViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "rssCell", for: indexPath)
         
         //remplissage du texte du fruit ainsi que du sous titre
-        cell.detailTextLabel?.text = Array(fluxRSS.values)[indexPath.row]
-        cell.textLabel?.text = Array(fluxRSS.keys)[indexPath.row]
+        cell.textLabel?.text = channels[indexPath.row].title
+        cell.detailTextLabel?.text = channels[indexPath.row].description_channel
         
         //test
-        if let test:UIImage = UIImage.donwloadURL(withString: "https://www.contrepoints.org/wp-content/uploads/2016/03/cropped-Contrepoints-Logo-32x32.jpg") {
-            cell.imageView?.image = test
+        if let tempoData:NSData = channels[indexPath.row].image {
+            cell.imageView?.image = UIImage.init(data: tempoData as Data!)
         }
         
         
@@ -114,6 +118,24 @@ class ListRSSViewController: UITableViewController {
     }
     
     
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        if let context = DataManager.shared.objectContext {
+            
+            //récupération / affichage des itemsRSS
+            let fetchRequest: NSFetchRequest  <ChannelRSS> = ChannelRSS.fetchRequest()
+            
+            if let rows = try? context.fetch(fetchRequest) {
+                channels = []
+                for channel in rows {
+                    channels.append(channel)
+                }
+                self.tableView.reloadData()
+            }
+            
+        }
+    }
     
     /*
      // Override to support rearranging the table view.

@@ -18,6 +18,10 @@ class RSSParserDelegate: NSObject, XMLParserDelegate {
     //une liste d'itemRSS
     var items:[ItemRSS] = []
     
+    //l'objet qui représente les données du channel de notre flux RSS
+    var channel:Channel = Channel()
+    
+    
     //une variable contenant l'élément XML de notre flux RSS en train d'être lu (la lecture de l'élément puis de son contenu se fait en deux étapes)
     private var elementNameInProgress:String = ""
     
@@ -70,7 +74,7 @@ class RSSParserDelegate: NSObject, XMLParserDelegate {
      * C'est méthode sera utilisé pour "setter" les propriétés de l'ItemRSS qui aura été ajouté dans items
      */
     public func parser(_ parser: XMLParser, foundCharacters string: String){
-        //print("foundCharacters")
+        //print("foundCharacters \(self.elementNameInProgress)")
         
         self.tempoRead.append(string)
 
@@ -91,44 +95,64 @@ class RSSParserDelegate: NSObject, XMLParserDelegate {
     
     private func setLastItem() {
         
-
-        
-        switch self.elementNameInProgress {
-            case "title":
-                items.last?.title.append(self.tempoRead)
-                break
-            case "link":
-                items.last?.link.append(self.tempoRead)
-                break
-            case "description":
-                items.last?.rssDescription.append(self.tempoRead)
-                break
-            case "author":
-                items.last?.author.append(self.tempoRead)
-                break
-            case "category":
-                items.last?.addCategory(categoryName: self.tempoRead)
-                break
-            case "comments":
-                items.last?.comments.append(self.tempoRead)
-                break
-            case "enclosure":
-                items.last?.enclosure.append(self.tempoRead)
-                break
-            case "guid":
-                items.last?.guid.append(self.tempoRead)
-                break
-            case "pubDate":
-                items.last?.pubDate.append(self.tempoRead)
-                break
-            case "source":
-                items.last?.source.append(self.tempoRead)
-                break
-            case "content:encoded":
-                items.last?.contentEncoded.append(self.tempoRead)
-            default:
-                break
-            
+        //si on a commencé le parsing des items
+        if (items.count > 0) {
+            switch self.elementNameInProgress {
+                case "title":
+                    items.last?.title.append(self.tempoRead)
+                    break
+                case "link":
+                    items.last?.link.append(self.tempoRead)
+                    break
+                case "description":
+                    items.last?.rssDescription.append(self.tempoRead)
+                    break
+                case "author":
+                    items.last?.author.append(self.tempoRead)
+                    break
+                case "category":
+                    items.last?.addCategory(categoryName: self.tempoRead)
+                    break
+                case "comments":
+                    items.last?.comments.append(self.tempoRead)
+                    break
+                case "enclosure":
+                    items.last?.enclosure.append(self.tempoRead)
+                    break
+                case "guid":
+                    items.last?.guid.append(self.tempoRead)
+                    break
+                case "pubDate":
+                    items.last?.pubDate.append(self.tempoRead)
+                    break
+                case "source":
+                    items.last?.source.append(self.tempoRead)
+                    break
+                case "content:encoded":
+                    items.last?.contentEncoded.append(self.tempoRead)
+                    break
+                default:
+                    break
+            }
+        } else {
+            switch self.elementNameInProgress {
+                
+                //	The name of the channel
+                case "title":
+                    channel.title = self.tempoRead
+                    break
+                case "link":
+                    channel.link = self.tempoRead
+                    break
+                case "description":
+                    channel.descriptionChannel = self.tempoRead
+                    break
+                case "url":
+                    channel.urlImage = self.tempoRead
+                    break
+                default :
+                    break
+            }
         }
     }
     
