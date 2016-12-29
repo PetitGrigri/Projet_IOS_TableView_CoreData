@@ -83,6 +83,37 @@ class ListRSSViewController: UITableViewController {
          }
      }
     
+    @IBAction func addFluxRssButton(_ sender: Any) {
+        
+        // ajouter source flux rss
+        let addRssPopUp = UIAlertController(title: "Ajouter un flux rss", message: nil, preferredStyle: .alert)
+        
+        // edit text field
+        addRssPopUp.addTextField(configurationHandler: {(mTextF) in
+            mTextF.placeholder = "Ex : http://korben.info/feed"
+        })
+        
+        // button ok
+        addRssPopUp.addAction(UIAlertAction(title: "Ajouter", style: .default, handler: {(_) in
+            
+            if let fluxRssUrl = addRssPopUp.textFields?[0] {
+                
+                print(fluxRssUrl.text!)
+                // todo : add to coreData and display in listview
+                
+            }
+            
+        }))
+        
+        // button annuler
+        addRssPopUp.addAction(UIAlertAction(title: "Annuler", style: .default, handler: nil))
+        
+        
+        self.present(addRssPopUp, animated: true, completion: nil)
+        
+    }
+    
+    
     
     /*
      // Override to support rearranging the table view.
