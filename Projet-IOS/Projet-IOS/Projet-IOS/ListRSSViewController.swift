@@ -23,12 +23,7 @@ class ListRSSViewController: UITableViewController {
         super.init(coder: aDecoder)
         
         // Initialisation du tabBarItem de ce controller (à faire pour chaque controller accessible via une tabBar pour le tunner ^^)
-        self.tabBarItem = UITabBarItem(title: "Vos flux RSS", image: UIImage(named: "rss-7"), tag: 0)
-        self.title = "Vos Flux RSS"
-        
-        
-
-        
+        self.tabBarItem = UITabBarItem(title: "Vos flux RSS", image: UIImage(named: "rss-7"), tag: 1)
     }
     
     
@@ -58,9 +53,12 @@ class ListRSSViewController: UITableViewController {
         cell.textLabel?.text = channels[indexPath.row].title
         cell.detailTextLabel?.text = channels[indexPath.row].description_channel
         
-        //test
+        
         if let tempoData:NSData = channels[indexPath.row].image {
             cell.imageView?.image = UIImage.init(data: tempoData as Data!)
+        } else
+        {
+            cell.imageView?.image = nil;
         }
         
         
@@ -125,7 +123,9 @@ class ListRSSViewController: UITableViewController {
             
             //récupération / affichage des itemsRSS
             let fetchRequest: NSFetchRequest  <ChannelRSS> = ChannelRSS.fetchRequest()
-            
+
+
+
             if let rows = try? context.fetch(fetchRequest) {
                 channels = []
                 for channel in rows {

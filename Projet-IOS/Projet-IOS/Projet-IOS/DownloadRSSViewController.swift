@@ -81,7 +81,6 @@ class DownloadRSSViewController: UIViewController {
                 }
                 
                 
-                
                 //récupération / affichage des channelRSS
                 let fetchRequestChannel: NSFetchRequest  <ChannelRSS> = ChannelRSS.fetchRequest()
                 
@@ -138,10 +137,6 @@ class DownloadRSSViewController: UIViewController {
                                             }
                                         }
                                     }
-                                    
-                                   
-                                    
-                                    
                                 }
                             }
                             
@@ -157,7 +152,6 @@ class DownloadRSSViewController: UIViewController {
 
                                 }
                             }
-
                             
                             print(parserRSSDelegate.channel)
                             parserRSSDelegate.channel = Channel()
@@ -165,7 +159,6 @@ class DownloadRSSViewController: UIViewController {
                         }
                     }
                 }
-                
                 
                 //sauvegarde des items précédents
                 do {
