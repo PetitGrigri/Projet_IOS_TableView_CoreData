@@ -124,7 +124,8 @@ class ListRSSViewController: UITableViewController {
             //récupération / affichage des itemsRSS
             let fetchRequest: NSFetchRequest  <ChannelRSS> = ChannelRSS.fetchRequest()
 
-
+            let fetchRequestOrder = NSSortDescriptor.init(key: "title", ascending: false)
+            fetchRequest.sortDescriptors = [fetchRequestOrder]
 
             if let rows = try? context.fetch(fetchRequest) {
                 channels = []
