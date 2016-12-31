@@ -61,6 +61,7 @@ class ListArticlesViewController: UITableViewController {
     
     //Méthode indiquant le nombre de fruit pour la section
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
         return articles.count
     }
     
@@ -81,8 +82,7 @@ class ListArticlesViewController: UITableViewController {
         //retour de la cellule
         return cell
     }
-    
-    
+
     
     
      // In a storyboard-based application, you will often want to do a little preparation before navigation

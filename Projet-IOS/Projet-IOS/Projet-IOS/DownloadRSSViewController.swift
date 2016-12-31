@@ -61,6 +61,9 @@ class DownloadRSSViewController: UIViewController {
             
             if let context = DataManager.shared.objectContext {
                 
+                /*
+                 * Première étape : on vide  les articles qui sont enregistrés
+                 */
                 //récupération / affichage des itemsRSS
                 let fetchRequest: NSFetchRequest  <ItemsRSS> = ItemsRSS.fetchRequest()
                 
@@ -80,6 +83,7 @@ class DownloadRSSViewController: UIViewController {
                     }
                 }
                 
+
                 
                 //récupération / affichage des channelRSS
                 let fetchRequestChannel: NSFetchRequest  <ChannelRSS> = ChannelRSS.fetchRequest()
@@ -88,60 +92,45 @@ class DownloadRSSViewController: UIViewController {
                 let countChannelRSS = try? context.count(for: fetchRequestChannel)
                 print("Nombre de ChannelRss : \(countChannelRSS!)")
                 
-                if countChannelRSS! > 0 {
-                    //labelProgression.text = "Suppression des anciens articles"
-                    //suppression des itemsRSS
-                    let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequestChannel as! NSFetchRequest<NSFetchRequestResult>)
-                    do {
-                        try context.execute(deleteRequest)
-                        try context.save()
-                    } catch {
-                        print (error)
-                    }
-                }
-                
-                
-                
-                
-                
-                //on parcours la liste de nos flux RSS et on les parcourera ensuite, afin de les enregistrer Dans notre model ItemsRSS
-                let parserRSSDelegate = RSSParserDelegate()
-                
-                for fluxRSS in self.listeFluxRSS {
-                    
-                    
-                    if let urlFluxRSS = URL(string: fluxRSS) {
-                        DispatchQueue.main.async {
-                            self.labelProgression.text = "Téléchargement des vos flux RSS \n \(fluxRSS)"
-                        }
-                        if let myRSSParser = XMLParser(contentsOf: urlFluxRSS) {
-                            
-                            myRSSParser.delegate = parserRSSDelegate
-                            myRSSParser.parse()
-                            
-                            for itemRSS in parserRSSDelegate.items {
-                                //Ajout d'un itemRSS (commitStrip)
-                                if let itemModel = NSEntityDescription.insertNewObject(forEntityName: "ItemsRSS", into: context) as? ItemsRSS {
-                                    itemModel.title = itemRSS.title
-                                    itemModel.link  = itemRSS.link
-                                    itemModel.author = itemRSS.author
-                                    itemModel.rss_description = itemRSS.rssDescription
-                                    itemModel.category = itemRSS.description
-                                    itemModel.comments = itemRSS.comments
-                                    itemModel.pub_date = itemRSS.pubDate
-                                    
-                                    if !itemRSS.contentEncoded.isEmpty {
-                                        if let contentENcodedUTF8 = itemRSS.contentEncoded.data(using: String.Encoding.utf8) {
-                                            if let contentENcodedUTF8NSData = contentENcodedUTF8 as NSData! {
-                                                 itemModel.content_encoded = contentENcodedUTF8NSData
+                //pour chaque fluxRSS Disponibles
+                if let rows = try? context.fetch(fetchRequestChannel) {
+                    for channelRSS in rows {
+
+                        
+                        //on parcours la liste de nos flux RSS et on les parcourera ensuite, afin de les enregistrer Dans notre model ItemsRSS
+                        let parserRSSDelegate = RSSParserDelegate()
+
+                        
+                        if let urlFluxRSS = URL(string: channelRSS.url_feed!) {
+                            DispatchQueue.main.async {
+                                self.labelProgression.text = "Téléchargement des vos flux RSS \n \(channelRSS.url_feed!)"
+                            }
+                            if let myRSSParser = XMLParser(contentsOf: urlFluxRSS) {
+                                
+                                myRSSParser.delegate = parserRSSDelegate
+                                myRSSParser.parse()
+                                
+                                for itemRSS in parserRSSDelegate.items {
+                                    //Ajout d'un itemRSS (commitStrip)
+                                    if let itemModel = NSEntityDescription.insertNewObject(forEntityName: "ItemsRSS", into: context) as? ItemsRSS {
+                                        itemModel.title = itemRSS.title
+                                        itemModel.link  = itemRSS.link
+                                        itemModel.author = itemRSS.author
+                                        itemModel.rss_description = itemRSS.rssDescription
+                                        itemModel.category = itemRSS.description
+                                        itemModel.comments = itemRSS.comments
+                                        itemModel.pub_date = itemRSS.pubDate
+                                        
+                                        if !itemRSS.contentEncoded.isEmpty {
+                                            if let contentENcodedUTF8 = itemRSS.contentEncoded.data(using: String.Encoding.utf8) {
+                                                if let contentENcodedUTF8NSData = contentENcodedUTF8 as NSData! {
+                                                    itemModel.content_encoded = contentENcodedUTF8NSData
+                                                }
                                             }
                                         }
                                     }
                                 }
-                            }
-                            
-                            
-                            if let channelRSS = NSEntityDescription.insertNewObject(forEntityName: "ChannelRSS", into: context) as? ChannelRSS {
+
                                 channelRSS.title = parserRSSDelegate.channel.title
                                 channelRSS.description_channel = parserRSSDelegate.channel.descriptionChannel
                                 channelRSS.link = parserRSSDelegate.channel.link
@@ -149,25 +138,23 @@ class DownloadRSSViewController: UIViewController {
                                 if !parserRSSDelegate.channel.urlImage.isEmpty {
                                     let imageTempo:UIImage = UIImage.donwloadURL(withString: parserRSSDelegate.channel.urlImage)
                                     channelRSS.image = UIImagePNGRepresentation(imageTempo) as NSData?
-
+                                    
                                 }
+
+                                parserRSSDelegate.channel = Channel()
+                                parserRSSDelegate.items.removeAll()
                             }
-                            
-                            print(parserRSSDelegate.channel)
-                            parserRSSDelegate.channel = Channel()
-                            parserRSSDelegate.items.removeAll()
                         }
                     }
+                    
+                    //sauvegarde des items précédents
+                    do {
+                        try context.save()
+                        print("sauvegarde réalisée")
+                    } catch {
+                        print("erreur de la sauvegarde de l'article")
+                    }
                 }
-                
-                //sauvegarde des items précédents
-                do {
-                    try context.save()
-                    print("sauvegarde réalisée")
-                } catch {
-                    print("erreur de la sauvegarde de l'article")
-                }
-                
             }
             
             DispatchQueue.main.async {

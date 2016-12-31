@@ -15,9 +15,6 @@ class ListRSSViewController: UITableViewController {
 
     //variable contenant les informations du channel de nos flux RSS
     private  var channels:[ChannelRSS] = []
-    
-    private  var fluxRSS:[String:String] = ["International : Toute l'actualité sur Le Monde.fr":"lun, 19 Dec 2016 22:19:05", "Contrepoints":"lun, 19 Déc 2016 18:10:09"]
-    
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -49,9 +46,15 @@ class ListRSSViewController: UITableViewController {
         //si on avait pas fait comme ca on aurait du (sauf erreur créer à la main notre cellule)
         let cell = tableView.dequeueReusableCell(withIdentifier: "rssCell", for: indexPath)
         
-        //remplissage du texte du fruit ainsi que du sous titre
-        cell.textLabel?.text = channels[indexPath.row].title
-        cell.detailTextLabel?.text = channels[indexPath.row].description_channel
+        //si on n'a pas encore télécharger le contenu de notre fluxRSS on affiche l'url et un message informatif
+
+        if (channels[indexPath.row].title == nil) {
+            cell.textLabel?.text = channels[indexPath.row].url_feed
+            cell.detailTextLabel?.text = "Aucun téléchargement fait pour ce flux RSS"
+        } else {
+            cell.textLabel?.text = channels[indexPath.row].title
+            cell.detailTextLabel?.text = channels[indexPath.row].description_channel
+        }
         
         
         if let tempoData:NSData = channels[indexPath.row].image {
@@ -86,10 +89,9 @@ class ListRSSViewController: UITableViewController {
      }
     
     @IBAction func addFluxRssButton(_ sender: Any) {
-        
         // ajouter source flux rss
         let addRssPopUp = UIAlertController(title: "Ajouter un flux rss", message: nil, preferredStyle: .alert)
-        
+
         // edit text field
         addRssPopUp.addTextField(configurationHandler: {(mTextF) in
             mTextF.placeholder = "Ex : http://korben.info/feed"
@@ -99,10 +101,25 @@ class ListRSSViewController: UITableViewController {
         addRssPopUp.addAction(UIAlertAction(title: "Ajouter", style: .default, handler: {(_) in
             
             if let fluxRssUrl = addRssPopUp.textFields?[0] {
-                
-                print(fluxRssUrl.text!)
-                // todo : add to coreData and display in listview
-                
+
+                if (!fluxRssUrl.text!.isEmpty) {
+                    
+                    if let context = DataManager.shared.objectContext {
+                        if let channelRSS = NSEntityDescription.insertNewObject(forEntityName: "ChannelRSS", into: context) as? ChannelRSS {
+                            channelRSS.url_feed = fluxRssUrl.text!
+
+                            do {
+                                try context.save()
+                                print("sauvegarde réalisée")
+                                self.loadChannel()
+                            } catch {
+                                print("erreur de la sauvegarde du fluxRSS")
+                            }
+
+                        }
+
+                    }
+                }
             }
             
         }))
@@ -118,15 +135,21 @@ class ListRSSViewController: UITableViewController {
     
     
     override func viewDidAppear(_ animated: Bool) {
-        
+        self.loadChannel()
+    }
+    
+    
+    
+    
+    private func loadChannel() {
         if let context = DataManager.shared.objectContext {
             
             //récupération / affichage des itemsRSS
             let fetchRequest: NSFetchRequest  <ChannelRSS> = ChannelRSS.fetchRequest()
-
+            
             let fetchRequestOrder = NSSortDescriptor.init(key: "title", ascending: false)
             fetchRequest.sortDescriptors = [fetchRequestOrder]
-
+            
             if let rows = try? context.fetch(fetchRequest) {
                 channels = []
                 for channel in rows {
@@ -137,7 +160,6 @@ class ListRSSViewController: UITableViewController {
             
         }
     }
-    
     /*
      // Override to support rearranging the table view.
      override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
