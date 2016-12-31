@@ -96,11 +96,11 @@ class DownloadRSSViewController: UIViewController {
                 if let rows = try? context.fetch(fetchRequestChannel) {
                     for channelRSS in rows {
 
-                        
-                        //on parcours la liste de nos flux RSS et on les parcourera ensuite, afin de les enregistrer Dans notre model ItemsRSS
+                        //nous allors maitenant parcourir le contenu de nos flux RSS. Pour cela, nous utiliserons un XMLParser
                         let parserRSSDelegate = RSSParserDelegate()
 
                         
+                        //pour chaque url de nos "channels"
                         if let urlFluxRSS = URL(string: channelRSS.url_feed!) {
                             DispatchQueue.main.async {
                                 self.labelProgression.text = "Téléchargement des vos flux RSS \n \(channelRSS.url_feed!)"
@@ -119,7 +119,14 @@ class DownloadRSSViewController: UIViewController {
                                         itemModel.rss_description = itemRSS.rssDescription
                                         itemModel.category = itemRSS.description
                                         itemModel.comments = itemRSS.comments
-                                        itemModel.pub_date = itemRSS.pubDate
+                                        
+                                        
+                                        
+                                        let formatter = DateFormatter()
+                                        formatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss z" // les pubdate sont au format RFF 882
+                                       
+                                        
+                                        itemModel.pub_date =  formatter.date(from: itemRSS.pubDate) as NSDate?
                                         
                                         if !itemRSS.contentEncoded.isEmpty {
                                             if let contentENcodedUTF8 = itemRSS.contentEncoded.data(using: String.Encoding.utf8) {
@@ -134,6 +141,7 @@ class DownloadRSSViewController: UIViewController {
                                 channelRSS.title = parserRSSDelegate.channel.title
                                 channelRSS.description_channel = parserRSSDelegate.channel.descriptionChannel
                                 channelRSS.link = parserRSSDelegate.channel.link
+
                                 
                                 if !parserRSSDelegate.channel.urlImage.isEmpty {
                                     let imageTempo:UIImage = UIImage.donwloadURL(withString: parserRSSDelegate.channel.urlImage)

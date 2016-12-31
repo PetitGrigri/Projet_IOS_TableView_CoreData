@@ -22,6 +22,7 @@
 		057484461E1320770016416F /* UIImage+downloadUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057484451E1320770016416F /* UIImage+downloadUrl.swift */; };
 		0574844A1E15AB350016416F /* String+htmlToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057484491E15AB350016416F /* String+htmlToString.swift */; };
 		0574844C1E15B51C0016416F /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0574844B1E15B51C0016416F /* Channel.swift */; };
+		0574844E1E1808F90016416F /* news_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0574844D1E1808F90016416F /* news_icon.png */; };
 		05CD28B01E0DD0CF00EC7FD0 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CD28AF1E0DD0CF00EC7FD0 /* ArticleViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		057484451E1320770016416F /* UIImage+downloadUrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+downloadUrl.swift"; sourceTree = "<group>"; };
 		057484491E15AB350016416F /* String+htmlToString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+htmlToString.swift"; sourceTree = "<group>"; };
 		0574844B1E15B51C0016416F /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		0574844D1E1808F90016416F /* news_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = news_icon.png; path = Assets.xcassets/AppIcon.appiconset/news_icon.png; sourceTree = "<group>"; };
 		05CD28AF1E0DD0CF00EC7FD0 /* ArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,6 +103,7 @@
 				0503EB331E0C732C00D73110 /* Extensions */,
 				054D78901E087D0000D04564 /* AppDelegate.swift */,
 				054D78971E087D0000D04564 /* Assets.xcassets */,
+				0574844D1E1808F90016416F /* news_icon.png */,
 				054D789C1E087D0100D04564 /* Info.plist */,
 				0503EB351E0C768C00D73110 /* RSSParserDelegate.swift */,
 				0574844B1E15B51C0016416F /* Channel.swift */,
@@ -189,6 +192,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				054D789B1E087D0000D04564 /* LaunchScreen.storyboard in Resources */,
+				0574844E1E1808F90016416F /* news_icon.png in Resources */,
 				054D78981E087D0000D04564 /* Assets.xcassets in Resources */,
 				054D78961E087D0000D04564 /* Main.storyboard in Resources */,
 			);

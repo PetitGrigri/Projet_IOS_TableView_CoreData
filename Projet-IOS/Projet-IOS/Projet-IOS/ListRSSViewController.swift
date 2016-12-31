@@ -13,6 +13,7 @@ import CoreData
 class ListRSSViewController: UITableViewController {
     
 
+    @IBOutlet weak var labelNoChannelRSS: UILabel!
     //variable contenant les informations du channel de nos flux RSS
     private  var channels:[ChannelRSS] = []
 
@@ -36,6 +37,11 @@ class ListRSSViewController: UITableViewController {
     
     //Méthode indiquant le nombre de fruit pour la section
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if (self.channels.count > 0) {
+            labelNoChannelRSS.isHidden = true
+        } else {
+            labelNoChannelRSS.isHidden = false
+        }
         return self.channels.count
     }
     
@@ -46,9 +52,8 @@ class ListRSSViewController: UITableViewController {
         //si on avait pas fait comme ca on aurait du (sauf erreur créer à la main notre cellule)
         let cell = tableView.dequeueReusableCell(withIdentifier: "rssCell", for: indexPath)
         
-        //si on n'a pas encore télécharger le contenu de notre fluxRSS on affiche l'url et un message informatif
-
-        if (channels[indexPath.row].title == nil) {
+        //si on n'a pas encore téléchargé le contenu de notre fluxRSS (ou si l'url n'est pas bonne) on affiche l'url et un message informatif
+        if (channels[indexPath.row].title == nil) || (channels[indexPath.row].title!.isEmpty) {
             cell.textLabel?.text = channels[indexPath.row].url_feed
             cell.detailTextLabel?.text = "Aucun téléchargement fait pour ce flux RSS"
         } else {
@@ -56,7 +61,7 @@ class ListRSSViewController: UITableViewController {
             cell.detailTextLabel?.text = channels[indexPath.row].description_channel
         }
         
-        
+        //si on a une image enregistrée
         if let tempoData:NSData = channels[indexPath.row].image {
             cell.imageView?.image = UIImage.init(data: tempoData as Data!)
         } else
@@ -157,7 +162,7 @@ class ListRSSViewController: UITableViewController {
             //récupération / affichage des itemsRSS
             let fetchRequest: NSFetchRequest  <ChannelRSS> = ChannelRSS.fetchRequest()
             
-            let fetchRequestOrder = NSSortDescriptor.init(key: "title", ascending: false)
+            let fetchRequestOrder = NSSortDescriptor.init(key: "title", ascending: true)
             fetchRequest.sortDescriptors = [fetchRequestOrder]
             
             if let rows = try? context.fetch(fetchRequest) {
@@ -169,30 +174,5 @@ class ListRSSViewController: UITableViewController {
             }
             
         }
-    }
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+    }    
 }

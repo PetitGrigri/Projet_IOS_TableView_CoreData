@@ -11,8 +11,11 @@ import UIKit
 import CoreData
 
 class ListArticlesViewController: UITableViewController {
+
     
+    @IBOutlet weak var labelNoArticle: UILabel!
     //variable contenant des articles
+    
     private  var articles:[ItemsRSS] = []
     
     required init?(coder aDecoder: NSCoder) {
@@ -36,6 +39,9 @@ class ListArticlesViewController: UITableViewController {
             
             //récupération / affichage des itemsRSS
             let fetchRequest: NSFetchRequest  <ItemsRSS> = ItemsRSS.fetchRequest()
+            
+            let fetchRequestOrder = NSSortDescriptor.init(key: "pub_date", ascending: false)
+            fetchRequest.sortDescriptors = [fetchRequestOrder]
             
             if let rows = try? context.fetch(fetchRequest) {
                 articles = []
@@ -62,7 +68,12 @@ class ListArticlesViewController: UITableViewController {
     //Méthode indiquant le nombre de fruit pour la section
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return articles.count
+        if (self.articles.count > 0) {
+            labelNoArticle.isHidden = true
+        } else {
+            labelNoArticle.isHidden = false
+        }
+        return self.articles.count
     }
     
     //Méthode permettant de créer ou de renvoyer une cellule
@@ -75,6 +86,9 @@ class ListArticlesViewController: UITableViewController {
         //récupération du nom du fuit à afficher
         let article = articles[indexPath.row]
         
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd MM yyyy" // les pubdate sont au format RFF 882
+
         //remplissage du texte du fruit ainsi que du sous titre
         cell.textLabel?.text = article.title
         cell.detailTextLabel?.text = article.rss_description?.htmlToString()
