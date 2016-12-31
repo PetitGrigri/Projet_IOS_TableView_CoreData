@@ -81,12 +81,23 @@ class ListRSSViewController: UITableViewController {
      // Override to support editing the table view.
      override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
          if editingStyle == .delete {
-         // Delete the row from the data source
-         tableView.deleteRows(at: [indexPath], with: .fade)
-         } else if editingStyle == .insert {
-         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+            
+            
+            if let context = DataManager.shared.objectContext {
+                context.delete(channels[indexPath.row])
+                channels.remove(at: indexPath.row)
+                do {
+                    try context.save()
+                    print ("suppression du flux RSS réalisée")
+                } catch {
+                    print("erreur lors de la suppression du flux RSS")
+                }
+                
+                // Delete the row from the data source
+                self.tableView.deleteRows(at: [indexPath], with: .fade)
+            }
          }
-     }
+    }
     
     @IBAction func addFluxRssButton(_ sender: Any) {
         // ajouter source flux rss
@@ -126,7 +137,6 @@ class ListRSSViewController: UITableViewController {
         
         // button annuler
         addRssPopUp.addAction(UIAlertAction(title: "Annuler", style: .default, handler: nil))
-        
         
         self.present(addRssPopUp, animated: true, completion: nil)
         
