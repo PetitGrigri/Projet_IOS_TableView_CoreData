@@ -87,11 +87,16 @@ class ListArticlesViewController: UITableViewController {
         let article = articles[indexPath.row]
         
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd MM yyyy" // les pubdate sont au format RFF 882
+        formatter.dateFormat = "dd/MM/yyyy" // les pubdate sont au format RFF 882
 
         //remplissage du texte du fruit ainsi que du sous titre
         cell.textLabel?.text = article.title
-        cell.detailTextLabel?.text = article.rss_description?.htmlToString()
+        if let descriptionRSS = article.rss_description {
+             cell.detailTextLabel?.text = "\(formatter.string(from: article.pub_date as! Date)) \(descriptionRSS.htmlToString() )"
+        } else{
+            cell.detailTextLabel?.text = formatter.string(from: article.pub_date as! Date)
+        }
+       
         
         //retour de la cellule
         return cell
