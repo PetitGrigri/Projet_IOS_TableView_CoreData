@@ -17,13 +17,17 @@ class ListArticlesViewController: UITableViewController {
     //variable contenant des articles
     
     private  var articles:[ItemsRSS] = []
+    private var formatter:DateFormatter
     
     required init?(coder aDecoder: NSCoder) {
+        //configuration de notre DateFormater
+        self.formatter = DateFormatter()
+        self.formatter.dateFormat = "dd/MM/yyyy"
+
         super.init(coder: aDecoder)
         
         // Initialisation du tabBarItem de ce controller (à faire pour chaque controller accessible via une tabBar pour le tunner ^^)
         self.tabBarItem = UITabBarItem(title: "Vos articles", image: UIImage(named: "list-simple-7"), tag: 0)
-        
     }
 
     
@@ -86,15 +90,14 @@ class ListArticlesViewController: UITableViewController {
         //récupération du nom du fuit à afficher
         let article = articles[indexPath.row]
         
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM/yyyy" // les pubdate sont au format RFF 882
+
 
         //remplissage du texte du fruit ainsi que du sous titre
         cell.textLabel?.text = article.title
         if let descriptionRSS = article.rss_description {
-             cell.detailTextLabel?.text = "\(formatter.string(from: article.pub_date as! Date)) \(descriptionRSS.htmlToString() )"
+             cell.detailTextLabel?.text = "\(self.formatter .string(from: article.pub_date as! Date)) \(descriptionRSS.htmlToString() )"
         } else{
-            cell.detailTextLabel?.text = formatter.string(from: article.pub_date as! Date)
+            cell.detailTextLabel?.text = self.formatter .string(from: article.pub_date as! Date)
         }
        
         

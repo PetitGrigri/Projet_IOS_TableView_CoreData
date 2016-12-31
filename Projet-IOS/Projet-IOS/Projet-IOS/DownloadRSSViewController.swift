@@ -13,20 +13,18 @@ class DownloadRSSViewController: UIViewController {
 
     @IBOutlet weak var progressionSpinner: UIActivityIndicatorView!
     @IBOutlet weak var labelProgression: UILabel!
-    
-    
-    
-    private let listeFluxRSS : [String] = ["http://korben.info/feed", "https://www.contrepoints.org/feed"]
-    
-    
-    
+
+    private var formatter:DateFormatter
     
     required init?(coder aDecoder: NSCoder) {
+        //configuration de notre DateFormater
+        self.formatter = DateFormatter()
+        self.formatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss z" // les pubdate sont au format RFF 882
+        
         super.init(coder: aDecoder)
         
         // Initialisation du tabBarItem de ce controller (à faire pour chaque controller accessible via une tabBar pour le tunner ^^)
         self.tabBarItem = UITabBarItem(title: "Telecharger", image: UIImage(named: "download-7"), tag: 2)
-        
     }
     
     
@@ -120,13 +118,9 @@ class DownloadRSSViewController: UIViewController {
                                         itemModel.category = itemRSS.description
                                         itemModel.comments = itemRSS.comments
                                         
+
                                         
-                                        
-                                        let formatter = DateFormatter()
-                                        formatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss z" // les pubdate sont au format RFF 882
-                                       
-                                        
-                                        itemModel.pub_date =  formatter.date(from: itemRSS.pubDate) as NSDate?
+                                        itemModel.pub_date =  self.formatter.date(from: itemRSS.pubDate) as NSDate?
                                         
                                         if !itemRSS.contentEncoded.isEmpty {
                                             if let contentENcodedUTF8 = itemRSS.contentEncoded.data(using: String.Encoding.utf8) {
