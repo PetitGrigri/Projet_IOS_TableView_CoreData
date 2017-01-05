@@ -12,6 +12,8 @@
 		0503EB361E0C768C00D73110 /* RSSParserDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0503EB351E0C768C00D73110 /* RSSParserDelegate.swift */; };
 		0503EB381E0C776A00D73110 /* ItemRSS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0503EB371E0C776A00D73110 /* ItemRSS.swift */; };
 		0503EB3B1E0C7BFF00D73110 /* Entities.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0503EB391E0C7BFF00D73110 /* Entities.xcdatamodeld */; };
+		052B08DD1E1CF2010033E3F1 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052B08DB1E1CF2010033E3F1 /* ArticleTableViewCell.swift */; };
+		052B08DE1E1CF2010033E3F1 /* ArticleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 052B08DC1E1CF2010033E3F1 /* ArticleTableViewCell.xib */; };
 		054D78911E087D0000D04564 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054D78901E087D0000D04564 /* AppDelegate.swift */; };
 		054D78961E087D0000D04564 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 054D78941E087D0000D04564 /* Main.storyboard */; };
 		054D78981E087D0000D04564 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 054D78971E087D0000D04564 /* Assets.xcassets */; };
@@ -22,7 +24,6 @@
 		057484461E1320770016416F /* UIImage+downloadUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057484451E1320770016416F /* UIImage+downloadUrl.swift */; };
 		0574844A1E15AB350016416F /* String+htmlToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057484491E15AB350016416F /* String+htmlToString.swift */; };
 		0574844C1E15B51C0016416F /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0574844B1E15B51C0016416F /* Channel.swift */; };
-		0574844E1E1808F90016416F /* news_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0574844D1E1808F90016416F /* news_icon.png */; };
 		05CD28B01E0DD0CF00EC7FD0 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CD28AF1E0DD0CF00EC7FD0 /* ArticleViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,8 @@
 		0503EB351E0C768C00D73110 /* RSSParserDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSParserDelegate.swift; sourceTree = "<group>"; };
 		0503EB371E0C776A00D73110 /* ItemRSS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemRSS.swift; sourceTree = "<group>"; };
 		0503EB3A1E0C7BFF00D73110 /* Entities.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Entities.xcdatamodel; sourceTree = "<group>"; };
+		052B08DB1E1CF2010033E3F1 /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
+		052B08DC1E1CF2010033E3F1 /* ArticleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArticleTableViewCell.xib; sourceTree = "<group>"; };
 		054D788D1E087D0000D04564 /* Projet-IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Projet-IOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		054D78901E087D0000D04564 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		054D78951E087D0000D04564 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -44,7 +47,6 @@
 		057484451E1320770016416F /* UIImage+downloadUrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+downloadUrl.swift"; sourceTree = "<group>"; };
 		057484491E15AB350016416F /* String+htmlToString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+htmlToString.swift"; sourceTree = "<group>"; };
 		0574844B1E15B51C0016416F /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
-		0574844D1E1808F90016416F /* news_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = news_icon.png; path = Assets.xcassets/AppIcon.appiconset/news_icon.png; sourceTree = "<group>"; };
 		05CD28AF1E0DD0CF00EC7FD0 /* ArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,7 +105,6 @@
 				0503EB331E0C732C00D73110 /* Extensions */,
 				054D78901E087D0000D04564 /* AppDelegate.swift */,
 				054D78971E087D0000D04564 /* Assets.xcassets */,
-				0574844D1E1808F90016416F /* news_icon.png */,
 				054D789C1E087D0100D04564 /* Info.plist */,
 				0503EB351E0C768C00D73110 /* RSSParserDelegate.swift */,
 				0574844B1E15B51C0016416F /* Channel.swift */,
@@ -128,6 +129,8 @@
 			children = (
 				054D78941E087D0000D04564 /* Main.storyboard */,
 				054D78991E087D0000D04564 /* LaunchScreen.storyboard */,
+				052B08DB1E1CF2010033E3F1 /* ArticleTableViewCell.swift */,
+				052B08DC1E1CF2010033E3F1 /* ArticleTableViewCell.xib */,
 			);
 			name = Vues;
 			sourceTree = "<group>";
@@ -191,8 +194,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				052B08DE1E1CF2010033E3F1 /* ArticleTableViewCell.xib in Resources */,
 				054D789B1E087D0000D04564 /* LaunchScreen.storyboard in Resources */,
-				0574844E1E1808F90016416F /* news_icon.png in Resources */,
 				054D78981E087D0000D04564 /* Assets.xcassets in Resources */,
 				054D78961E087D0000D04564 /* Main.storyboard in Resources */,
 			);
@@ -217,6 +220,7 @@
 				0503EB361E0C768C00D73110 /* RSSParserDelegate.swift in Sources */,
 				05CD28B01E0DD0CF00EC7FD0 /* ArticleViewController.swift in Sources */,
 				054D78A31E08813E00D04564 /* ListArticlesViewController.swift in Sources */,
+				052B08DD1E1CF2010033E3F1 /* ArticleTableViewCell.swift in Sources */,
 				0503EB381E0C776A00D73110 /* ItemRSS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

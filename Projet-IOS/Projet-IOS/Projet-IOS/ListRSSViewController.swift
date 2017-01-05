@@ -35,7 +35,7 @@ class ListRSSViewController: UITableViewController {
     }
     
     
-    //Méthode indiquant le nombre de fruit pour la section
+    //Méthode indiquant le nombre de fluxRSS
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (self.channels.count > 0) {
             labelNoChannelRSS.isHidden = true
@@ -74,20 +74,19 @@ class ListRSSViewController: UITableViewController {
         return cell
     }
     
-    
+    /*
      // Override to support conditional editing of the table view.
      override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
      // Return false if you do not want the specified item to be editable.
      return true
      }
- 
+    */
     
     
      // Override to support editing the table view.
      override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
          if editingStyle == .delete {
-            
-            
+
             if let context = DataManager.shared.objectContext {
                 context.delete(channels[indexPath.row])
                 channels.remove(at: indexPath.row)
@@ -97,7 +96,6 @@ class ListRSSViewController: UITableViewController {
                 } catch {
                     print("erreur lors de la suppression du flux RSS")
                 }
-                
                 // Delete the row from the data source
                 self.tableView.deleteRows(at: [indexPath], with: .fade)
             }

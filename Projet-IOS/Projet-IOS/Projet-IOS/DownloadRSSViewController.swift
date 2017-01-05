@@ -17,7 +17,7 @@ class DownloadRSSViewController: UIViewController {
     private var formatter:DateFormatter
     
     required init?(coder aDecoder: NSCoder) {
-        //configuration de notre DateFormater
+        //configuration de notre DateFormater (qui sera utiliser pour interpréter les dates des flux rss)
         self.formatter = DateFormatter()
         self.formatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss z" // les pubdate sont au format RFF 882
         
@@ -31,8 +31,6 @@ class DownloadRSSViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -94,7 +92,8 @@ class DownloadRSSViewController: UIViewController {
                 if let rows = try? context.fetch(fetchRequestChannel) {
                     for channelRSS in rows {
 
-                        //nous allors maitenant parcourir le contenu de nos flux RSS. Pour cela, nous utiliserons un XMLParser
+                        //nous allors maitenant parcourir le contenu de nos flux RSS. Pour cela, nous utiliserons un XMLParser 
+                        //TODO le sortir de la boucle ! !
                         let parserRSSDelegate = RSSParserDelegate()
 
                         

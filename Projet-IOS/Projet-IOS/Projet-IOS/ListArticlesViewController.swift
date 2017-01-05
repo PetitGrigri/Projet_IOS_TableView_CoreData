@@ -81,11 +81,11 @@ class ListArticlesViewController: UITableViewController {
     }
     
     //Méthode permettant de créer ou de renvoyer une cellule
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> ArticleTableViewCell {
         
         //récupération de notre cellule (cette dernière se trouve dans notre story board avec l'identifiant labelCell
         //si on avait pas fait comme ca on aurait du (sauf erreur créer à la main notre cellule)
-        let cell = tableView.dequeueReusableCell(withIdentifier: "articleCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "articleCell", for: indexPath) as! ArticleTableViewCell
         
         //récupération du nom du fuit à afficher
         let article = articles[indexPath.row]
@@ -93,14 +93,10 @@ class ListArticlesViewController: UITableViewController {
 
 
         //remplissage du texte du fruit ainsi que du sous titre
-        cell.textLabel?.text = article.title
-        if let descriptionRSS = article.rss_description {
-             cell.detailTextLabel?.text = "\(self.formatter .string(from: article.pub_date as! Date)) \(descriptionRSS.htmlToString() )"
-        } else{
-            cell.detailTextLabel?.text = self.formatter .string(from: article.pub_date as! Date)
-        }
-       
-        
+        cell.titreLabel.text = article.title
+        cell.dateLabel.text = self.formatter.string(from: article.pub_date as! Date)
+        cell.descriptionLabel.text = article.rss_description?.htmlToString()
+
         //retour de la cellule
         return cell
     }
